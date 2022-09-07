@@ -1,0 +1,36 @@
+// Base styling for the topnav
+
+
+
+
+nav{
+    background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;;
+}
+.sb-topnav {
+  padding-left: 0;
+  height: $topnav-base-height;
+  z-index: $zindex-topnav;
+  .navbar-brand {
+      width: $sidenav-base-width;
+      padding-left: $navbar-padding-x;
+      padding-right: $navbar-padding-x;
+      margin: 0;
+  }
+  &.navbar-dark {
+      #sidebarToggle {
+          color: $topnav-dark-toggler-color;
+      }
+  }
+  &.navbar-light {
+      #sidebarToggle {
+          color: $topnav-light-toggler-color;
+      }
+  }
+}
+
+.form-control{
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 20px;
+    opacity: 1;
+}
