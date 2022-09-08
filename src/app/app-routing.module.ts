@@ -40,23 +40,19 @@ const routes: Routes = [
             import('modules/utility/utility-routing.module').then(m => m.UtilityRoutingModule),
     },
     {
+        path: 'notificaciones',
+        loadChildren: () =>
+            import('modules/notifications/notifications-routing.module').then(
+                m => m.NotificationsRoutingModule
+            ),
+    },
+    {
         path: '**',
         pathMatch: 'full',
         loadChildren: () =>
             import('modules/error/error-routing.module').then(m => m.ErrorRoutingModule),
     },
-    // {
-    //     path: 'notificaciones',
-    //     loadChildren: () =>
-    //         import('modules/notifications/notifications-routing.module').then(
-    //             m => m.NotificationsRoutingModule
-    //         ),
-    // },
-    {
-        path: 'notificaciones',
-        pathMatch: 'full',
-        redirectTo: '/notificaciones',
-    },
+
 ];
 
 @NgModule({

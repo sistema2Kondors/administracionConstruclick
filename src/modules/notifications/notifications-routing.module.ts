@@ -7,7 +7,7 @@ import { NotificationsModule } from './notifications.module';
 
 export const ROUTES: Routes = [
     {
-        path: 'notificaciones',
+        path: '',
         data: {
             title: 'notificaciones - SB Admin Angular',
             breadcrumbs: [

@@ -7,7 +7,7 @@ export const sideNavSections: SideNavSection[] = [
     },
     {
         text: 'INICIO',
-        items: ['notificaciones', 'tienda', 'ordenes', 'historial', 'pagos'],
+        items: ['notifications', 'tienda', 'ordenes', 'historial', 'pagos'],
     },
     {
         text: 'ADMINISTRAR',
@@ -30,7 +30,7 @@ export const sideNavItems: SideNavItems = {
         text: 'Estadisticas',
         link: '/charts',
     },
-    notificaciones: {
+    notifications: {
         icon: 'table',
         text: 'Notificaciones',
         link: '/notificaciones',
