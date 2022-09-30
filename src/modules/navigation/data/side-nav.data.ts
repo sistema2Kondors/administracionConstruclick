@@ -15,7 +15,7 @@ export const sideNavSections: SideNavSection[] = [
     },
     {
         text: 'SOPORTE',
-        items: ['solicitudes', 'centro'],
+        items: ['centro', 'solicitudes'],
     },
 ];
 
@@ -77,11 +77,11 @@ export const sideNavItems: SideNavItems = {
     centro: {
         icon: 'table',
         text: 'Centro de ayuda',
-        link: '/tables',
+        link: '/centro-ayuda',
     },
     solicitudes: {
         icon: 'table',
         text: 'Solicitudes de soporte',
-        link: '/tables',
+        link: '/solicitudes-soporte',
     },
 };

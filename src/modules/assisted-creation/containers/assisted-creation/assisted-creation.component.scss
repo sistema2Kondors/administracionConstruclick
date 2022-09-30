@@ -1,4 +1,12 @@
 
+.textCenter{
+    display: flex;
+    justify-content: center;
+}
+.contentAsistida{
+    position: relative;left: 30%;
+}
+
 .contentBtnMensajes{
     padding: 38px;
 }
@@ -9,6 +17,19 @@
     box-shadow: inset -2.12px -2.12px 6px #ffffff;
     border-radius: 30px;
     width: 113px;
+}
+
+h1{
+    color: #757E95;
+}
+p{
+    color: #757E95;
+}
+
+.textAsistida{
+    position: relative;
+    top: 20px;
+    left: 41px;
 }
 .btnPaso{
     color: #FC6721;
@@ -23,12 +44,26 @@
     padding: 38px;
 }
 
-
-.btnProduct{
+.contentButton{
+    position: relative;
+    top: 37px;
+    left: 50px;
+}
+.btnDescargar{
+    color: #757E95;
+    background: transparent;
+    border-radius: 13px;
+    width: 33%;
+    height: 44px;
+    border: 1px solid #757E95;
+    margin: 10px;
+}
+.btnCargar{
     color: #EBECF0;
     background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
     box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
     border-radius: 13px;
-    width: 18%;
+    width: 33%;
     height: 44px;
+    margin: 10px;
 }

@@ -97,6 +97,20 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'centro-ayuda',
+        loadChildren: () =>
+            import('modules/help-center/help-center-routing.module').then(
+                m => m.HelpCenterRoutingModule
+            ),
+    },
+    {
+        path: 'solicitudes-soporte',
+        loadChildren: () =>
+            import('modules/support-requests/support-requests-routing.module').then(
+                m => m.SupportRequestsRoutingModule
+            ),
+    },
+    {
         path: '**',
         pathMatch: 'full',
         loadChildren: () =>

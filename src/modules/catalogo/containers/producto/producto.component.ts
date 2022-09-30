@@ -77,7 +77,7 @@ const PAYMENTS: Payment[] = [
     },
 ];
 @Component({
-    selector: 'app-notificaciones',
+    selector: 'app-productos',
     templateUrl: './producto.component.html',
     styleUrls: ['./producto.component.scss'],
 })
