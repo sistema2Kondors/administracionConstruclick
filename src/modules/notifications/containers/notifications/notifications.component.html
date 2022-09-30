@@ -1,6 +1,156 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="Notificaciones" [hideBreadcrumbs]="false"></sb-dashboard-head>
-
-    <h1>GHOLA MUNDO</h1>
+  <sb-dashboard-head title="CENTRO DE NOTIFICACIONES" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
+  <div class="contentBtnMensajes">
+    <button type="button" class="btn btnMensajes">MENSAJES</button>
+  </div>
+  
+  <nav ngbNav #nav="ngbNav" class="nav-tabs">
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Operaciones</a>
+      <ng-template ngbNavContent>
+        <div *ngIf="operations > 0; else noOperations">
+          Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+          farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+          ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+          helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+          8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+        </div>
+        <ng-template #noOperations>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="contentNotfications">
+                <img src="assets/img/iconoNotification.png" style="width: 200px;">
+                <h2 class="mensaje1">No tienes nuevos mensajes</h2>
+                <p> Sigue atento a tus notificaciones para no perderte de ninguna actualización importante</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Nuevos lanzamientos</a>
+      <ng-template ngbNavContent>
+        <div *ngIf="releases > 0; else noReleases">
+          Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+          farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+          ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+          helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+          8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+        </div>
+        <ng-template #noReleases>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="contentNotfications">
+                <img src="assets/img/iconoNotification.png" style="width: 200px;">
+                <h5>No tienes nuevos mensajes</h5>
+                <p> Sigue atento a tus notificaciones para no perderte de ninguna actualización importante</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Catálogo</a>
+      <ng-template ngbNavContent>
+        <div *ngIf="catalogue > 0; else noCatalogue">
+          Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+          farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+          ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+          helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+          8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+        </div>
+        <ng-template #noCatalogue>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="contentNotfications">
+                <img src="assets/img/iconoNotification.png" style="width: 200px;">
+                <h5>No tienes nuevos mensajes</h5>
+                <p> Sigue atento a tus notificaciones para no perderte de ninguna actualización importante</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Marketing</a>
+      <ng-template ngbNavContent>
+        <div *ngIf="marketing > 0; else noMarketing">
+          Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+          farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+          ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+          helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+          8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+        </div>
+        <ng-template #noMarketing>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="contentNotfications">
+                <img src="assets/img/iconoNotification.png" style="width: 200px;">
+                <h5>No tienes nuevos mensajes</h5>
+                <p> Sigue atento a tus notificaciones para no perderte de ninguna actualización importante</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Pagos</a>
+      <ng-template ngbNavContent>
+        <div *ngIf="payments > 0; else noPayments">
+          Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+          farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+          ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+          helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+          8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+        </div>
+        <ng-template #noPayments>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="contentNotfications">
+                <img src="assets/img/iconoNotification.png" style="width: 200px;">
+                <h5>No tienes nuevos mensajes</h5>
+                <p> Sigue atento a tus notificaciones para no perderte de ninguna actualización importante</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+    <ng-container ngbNavItem>
+      <a ngbNavLink>Tu perfil</a>
+      <ng-template ngbNavContent>
+        <div *ngIf="profile > 0; else noProfile">
+          Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko
+          farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts
+          ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar
+          helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson
+          8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
+          stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+        </div>
+        <ng-template #noProfile>
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="contentNotfications">
+                <img src="assets/img/iconoNotification.png" style="width: 200px;">
+                <h5>No tienes nuevos mensajes</h5>
+                <p> Sigue atento a tus notificaciones para no perderte de ninguna actualización importante</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+  </nav>
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
 
 </sb-layout-dashboard>

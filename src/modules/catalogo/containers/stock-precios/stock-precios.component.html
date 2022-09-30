@@ -1,0 +1,88 @@
+<sb-layout-dashboard><div class="row">
+    <div class="col-md-10">
+        <sb-dashboard-head title="Inventario de productos" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btnContinue">ACTUALIZACIÓN DE CSV</button>
+    </div>
+</div>
+        <div class="row contentProduct">
+            <div class="col-md-2 col-12">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Estado</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="col-md-2 col-12">
+                <select class="form-select borderSelect" aria-label="Default select example">
+                    <option selected>Selección</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                
+            </div>
+            <div class="col-md-2 col-12">
+                <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
+                placeholder="Buscar" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="col-md-2 col-12">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Perfileria Liviana</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                
+            </div>
+        </div>
+    
+    
+        <div class="contentTable">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="titleTable" scope="col"></th>
+                        <th class="titleTable" scope="col">PRODUCTO</th>
+                        <th class="titleTable" scope="col">ID</th>
+                        <th class="titleTable" scope="col">UNIDAD</th>
+                        <th class="titleTable" scope="col">SKU</th>
+                        <th class="titleTable" scope="col">ESTADO</th>
+                        <th class="titleTable" scope="col">PRECIO</th>
+                        <th class="titleTable" scope="col">STOCK</th>
+                        <th class="titleTable" scope="col">DESCUENTOS</th>
+                        <th class="titleTable" scope="col"></th>
+                        <th class="titleTable" scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td><img src="assets/img/iconoMas.png" style="width: 35px;"></td>
+                        <td scope="row">{{ product.product }}</td>
+                        <td> {{ product.idProduct | number }}</td>
+                        <td>{{ product.unit }}</td>
+                        <td>{{ product.sku }}</td>
+                        <td><img src="assets/img/iconoMas.png" style="width: 35px;"></td>
+                        <td>{{ product.price | number }}</td>
+                        <td>{{ product.stock | number }}</td>
+                        <td>{{ product.discounts }}</td>
+                        <td><button type="button" class="btn btnTable">Ver detalle</button></td>
+                        <td><img src="assets/img/IconoEditar.png" style="width: 20px;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div class="d-flex justify-content-end p-2">
+                <select class="cantidadLista" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+                    <option [ngValue]="2">2 </option>
+                    <option [ngValue]="4">5 </option>
+                    <option [ngValue]="6">10 </option>
+                </select>
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                    (pageChange)="refreshCountries()">
+                </ngb-pagination>
+            </div>
+        </div>
+    </sb-layout-dashboard> 

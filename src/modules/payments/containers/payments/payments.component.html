@@ -1,0 +1,83 @@
+<sb-layout-dashboard>
+    <div class="row">
+        <div class="col-md-10">
+            <sb-dashboard-head title="Historial de Pagos" [hideBreadcrumbs]="false"></sb-dashboard-head>
+        </div>
+        <div class="col-md-2">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Todas las tiendas</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 col-12">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Pagos pendientes</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col-md-3 col-12">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Pagos realizados</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-12">
+            <form class="row row-cols-sm-auto">
+                <div class="col-12">
+                    <div class="input-group">
+                        <input class="form-control inputOrder" placeholder="Fecha" name="dp" [(ngModel)]="model"
+                            ngbDatepicker #d="ngbDatepicker">
+                        <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="titleTable" scope="col">ID DE PAGO</th>
+                <th class="titleTable" scope="col">DESCRIPCIÓN</th>
+                <th class="titleTable" scope="col">FECHA DE PAGO</th>
+                <th class="titleTable" scope="col">ESTADO</th>
+                <th class="titleTable" scope="col">MONTO</th>
+                <th class="titleTable" scope="col">DETALLE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let payment of payments">
+                <th scope="row">{{ payment.id }}</th>
+                <td>
+                    {{ payment.description }}
+                </td>
+                <td>{{ payment.paymentDate | number}}</td>
+                <td>{{ payment.state }}</td>
+                <td>{{ payment.amount | number }}</td>
+                <td><button type="button" class="btn btnTable">Ver detalle</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end p-2">
+        <select class="cantidadLista" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+            <option [ngValue]="2">2 </option>
+            <option [ngValue]="4">5 </option>
+            <option [ngValue]="6">10 </option>
+        </select>
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+            (pageChange)="refreshCountries()">
+        </ngb-pagination>
+
+    </div>
+</sb-layout-dashboard>

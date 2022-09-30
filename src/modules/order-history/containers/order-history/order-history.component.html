@@ -1,0 +1,37 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Historial de Órdenes" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-md-3 col-12">
+            <input type="text" class="form-control inputOrder" aria-label="Sizing example input"
+                placeholder="ID de la orden" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="col-md-3 col-12">
+            <input type="text" class="form-control inputOrder" aria-label="Sizing example input"
+                placeholder="Seleccionar tienda" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="col-md-2 col-12">
+            <form class="row row-cols-sm-auto">
+                <div class="col-12">
+                  <div class="input-group">
+                    <input class="form-control inputOrder" placeholder="Fecha"
+                           name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                  </div>
+                </div>
+              </form>
+
+        </div>
+        <div class="col-md-2 col-12">
+            <button type="button" class="btn btnOrders">Enviar</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-12">
+            <div class="contentHistory">
+                <img src="assets/img/iconoHistorialOrdenes.png" style="width: 200px;">
+                <h3>Historial de Órdenes</h3>
+                <p> Podrás ver el informe de órdenes</p>
+            </div>
+        </div>
+    </div>
+</sb-layout-dashboard>

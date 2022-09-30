@@ -1,0 +1,67 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Catálogo de productos" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    
+        <div class="row contentProduct">
+            <div class="col-md-2 col-12">
+                <button type="button" class="btn btnProduct" routerLink="/creacion-masiva">Creación masiva</button>
+            </div>
+            <div class="col-md-2 col-12">
+                <button type="button" class="btn btnProduct">Agregar producto</button>
+            </div>
+            <div class="col-md-2 col-12">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selección</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                
+            </div>
+            <div class="col-md-6 col-12">
+                <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
+                placeholder="Buscar" aria-describedby="inputGroup-sizing-default">
+            </div>
+        </div>
+    
+    
+        <div class="contentTable">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="titleTable" scope="col"></th>
+                        <th class="titleTable" scope="col">PRODUCTO</th>
+                        <th class="titleTable" scope="col">ID DE PAGO</th>
+                        <th class="titleTable" scope="col">PRESENTACIÓN</th>
+                        <th class="titleTable" scope="col">SKU</th>
+                        <th class="titleTable" scope="col"></th>
+                        <th class="titleTable" scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let payment of payments">
+                        <td><img src="assets/img/iconoMas.png" style="width: 35px;"></td>
+                        <th scope="row">{{ payment.product }}</th>
+                        <td>
+                            {{ payment.idPago | number }}
+                        </td>
+                        <td>{{ payment.presentation }}</td>
+                        <td>{{ payment.sku }}</td>
+                        <td><button type="button" class="btn btnTable">Ver detalle</button></td>
+                        <td><img src="assets/img/iconoBasura.png" style="width: 20px;"></td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        
+            <div class="d-flex justify-content-end p-2">
+                <select class="cantidadLista" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+                    <option [ngValue]="2">2 </option>
+                    <option [ngValue]="4">5 </option>
+                    <option [ngValue]="6">10 </option>
+                </select>
+                <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+                    (pageChange)="refreshCountries()">
+                </ngb-pagination>
+            </div>
+        </div>
+    </sb-layout-dashboard> 

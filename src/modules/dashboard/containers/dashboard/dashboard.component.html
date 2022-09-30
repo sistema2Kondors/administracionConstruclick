@@ -1,2 +1,21 @@
-<sb-layout-dashboard><sb-dashboard-head title="Visión General" class="titleVision" [hideBreadcrumbs]="false"></sb-dashboard-head><sb-dashboard-cards></sb-dashboard-cards></sb-layout-dashboard>
-<!-- <sb-dashboard-charts></sb-dashboard-charts><sb-dashboard-tables></sb-dashboard-tables> -->
+<sb-layout-dashboard>
+    <sb-dashboard-head title="VISIÓN GENERAL" class="titleVision" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-md-2 col-12">
+            <select class="form-select">
+                <option disabled selected>Seleccione Fecha</option>
+                <option value="item 1">Últimos 10 días</option>
+                <option value="item 2">Últimos 7 días</option>
+                <option value="item 3">Últimos 3 días</option>
+            </select>
+        </div>
+    </div>
+    <div class="contentCards">
+        <h1 class="titleVentas">TUS VENTAS</h1>
+        <sb-dashboard-cards></sb-dashboard-cards>
+        <div class="contentBtnContinue">
+            <button type="button" class="btn btnContinue">CONTINUAR</button>
+        </div>
+    </div>
+    
+</sb-layout-dashboard>

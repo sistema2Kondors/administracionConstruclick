@@ -1,0 +1,26 @@
+.contenedorFormulario {
+    padding: 0px 110px;
+    text-align: center;
+}
+.titlePersonal{
+    display: flex;
+    justify-content: flex-start;
+    padding: 27px;
+    color: #757E95;
+}
+.inputPersonal{
+    margin: 6px;
+    border-radius: 12px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    height: 46px;
+}
+.form-select {
+    background-color: #EBECF0;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    height: 46px;
+    color: #C9CCDA;
+    margin: 6px;
+}

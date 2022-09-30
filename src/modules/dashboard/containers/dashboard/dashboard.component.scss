@@ -3,4 +3,41 @@
 .titleVision{
     font-size: 20px;
     padding-top: 20px;
+    color: #757E95;
+}
+
+.form-select{
+    background-color: #EBECF0 ;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    position: relative;
+    left: 5px;
+    height: 52px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #757E95;
+}
+
+.contentCards{
+    position: relative;
+    top: 113px;
+}
+
+.titleVentas{
+    color: #757E95;
+}
+.contentBtnContinue{
+    padding: 38px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top: 77px;
+}
+
+.btnContinue{
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 138px;
 }

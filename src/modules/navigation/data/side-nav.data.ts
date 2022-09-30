@@ -38,32 +38,41 @@ export const sideNavItems: SideNavItems = {
     tienda: {
         icon: 'table',
         text: 'Mi tienda',
-        link: '/dashboard',
+        link: '/tienda',
     },
     ordenes: {
         icon: 'table',
         text: 'Órdenes en curso',
-        link: '/dashboard',
+        link: '/ordenes-curso',
     },
     historial: {
         icon: 'table',
         text: 'Historial Órdenes',
-        link: '/dashboard',
+        link: '/historial-ordenes',
     },
     pagos: {
         icon: 'table',
         text: 'Pagos',
-        link: '/dashboard',
+        link: '/pagos',
     },
     catalogo: {
-        icon: 'table',
+        icon: 'columns',
         text: 'Catálogo',
-        link: '/tables',
+        submenu: [
+            {
+                text: 'Producto',
+                link: '/catalogo/producto',
+            },
+            {
+                text: 'Stock-precios',
+                link: '/catalogo/stock-precios',
+            },
+        ],
     },
     informacion: {
         icon: 'table',
         text: 'Información Personal',
-        link: '/tables',
+        link: '/informacion-personal',
     },
     centro: {
         icon: 'table',

@@ -84,6 +84,12 @@
   color: #757E95 ;
 }
 
+.sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-nested {
+  margin-left: 1.5rem;
+  flex-direction: column;
+  background: transparent;
+}
+
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu{
   background: #EBECF0;
 }

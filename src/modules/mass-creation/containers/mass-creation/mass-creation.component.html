@@ -1,0 +1,50 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title=""  class="titleNotifications"  [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="contentBtnMensajes">
+                <button type="button" class="btn btnBack" routerLink="/catalogo/producto"> < VOLVER</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="contentPaso">
+                <button type="button" class="btn btnPaso"> Paso a paso de creación asistida</button>
+            </div>
+        </div>
+    </div>
+    <div class="row contentCard">
+        <div class="col-md-12 col-12">
+            <div class="contentTitle">
+                <h1 class="textCard">Creación Masiva de Productos</h1>
+                <p class="textCard">Ahorra tiempo actualizando tu catálogo de manera rápida y efectiva. Hay dos tipos de creación
+                    de producto:
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card text-center">
+                <div class="card-body">
+                    <img src="assets/img/iconoProducto.png" class="iconoTienda" alt="..." />
+                    <h2 class="textCard">Creación asistida del producto</h2>
+                    <p class="card-text textCard">
+                        Te permite crear un catálogo en base a la información ya asistida de la plataforma.
+                    </p>
+                    <a href="#" class="btn btnCardCreacion" routerLink="/creacion-asistida">Crear Producto asistido</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="card text-center">
+                <div class="card-body">
+                    <img src="assets/img/iconoProducto.png" class="iconoTienda" alt="..." />
+                    <h2 class="textCard">Creación manual del producto</h2>
+                    <p class="card-text textCard">
+                        Crea tu catálogo desde cero con la información y características que desees. Al finalizar debes cargar
+                        las imágenes correspondientes.
+                    </p>
+                    <a href="#" class="btn btnCardCreacion">Crear producto manual</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</sb-layout-dashboard>

@@ -47,12 +47,61 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'tienda',
+        loadChildren: () =>
+            import('modules/tienda/tienda-routing.module').then(m => m.TiendaRoutingModule),
+    },
+    {
+        path: 'ordenes-curso',
+        loadChildren: () =>
+            import('modules/ongoing-orders/ongoing-orders-routing.module').then(
+                m => m.OngoingOrdersRoutingModule
+            ),
+    },
+    {
+        path: 'historial-ordenes',
+        loadChildren: () =>
+            import('modules/order-history/order-history-routing.module').then(
+                m => m.OrderHistoryRoutingModule
+            ),
+    },
+    {
+        path: 'pagos',
+        loadChildren: () =>
+            import('modules/payments/payments-routing.module').then(m => m.PaymentsRoutingModule),
+    },
+    {
+        path: 'catalogo',
+        loadChildren: () =>
+            import('modules/catalogo/catalogo-routing.module').then(m => m.CatalogoRoutingModule),
+    },
+    {
+        path: 'informacion-personal',
+        loadChildren: () =>
+            import('modules/personal-information/personal-information-routing.module').then(
+                m => m.PersonalInformationRoutingModule
+            ),
+    },
+    {
+        path: 'creacion-asistida',
+        loadChildren: () =>
+            import('modules/assisted-creation/assisted-creation-routing.module').then(
+                m => m.AssistedCreationRoutingModule
+            ),
+    },
+    {
+        path: 'creacion-masiva',
+        loadChildren: () =>
+            import('modules/mass-creation/mass-creation-routing.module').then(
+                m => m.MassCreationRoutingModule
+            ),
+    },
+    {
         path: '**',
         pathMatch: 'full',
         loadChildren: () =>
             import('modules/error/error-routing.module').then(m => m.ErrorRoutingModule),
     },
-
 ];
 
 @NgModule({

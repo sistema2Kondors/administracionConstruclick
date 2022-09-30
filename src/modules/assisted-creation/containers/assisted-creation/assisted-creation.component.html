@@ -1,0 +1,26 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title=""  class="titleNotifications"  [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="contentBtnMensajes">
+                <button type="button" class="btn btnBack" routerLink="/creacion-masiva"> < VOLVER</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-12">
+            <div class="contentPaso">
+                <button type="button" class="btn btnPaso"> Paso a paso de creación asistida</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Creación Asistida del Producto</h1>
+            <p>Te permite crear tu catálogo con información ya existente de la base de datos.</p>
+            <p>1. Descargar el archivo en CSV y completa los campos en EAN</p>
+            <p>2. Sube el archivo en el mismo formato CVS para identificar los productos y asociarlos a la base de datos.</p>
+            <p>3. Selecciones los productos que desea crear con la base de datos.</p>
+            <button type="button" class="btn btnProduct" routerLink="">Descargar archivo CVS</button>
+            <button type="button" class="btn btnProduct" routerLink="">Subir Archivo</button>
+        </div>
+    </div>
+</sb-layout-dashboard>

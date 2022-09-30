@@ -1,0 +1,60 @@
+.form-select {
+    background-color: #EBECF0;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    position: relative;
+    top: 21px;
+    height: 42px;
+    color: #C9CCDA;
+}
+
+.cantidadLista{
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    position: relative;
+    height: 35px;
+    color: #A2A9B9;
+    right: 43px;
+    border-radius: 10px;
+    border: 1px solid #A2A9B9;
+    padding: 5px;
+}
+
+.inputOrder {
+    margin: 20px;
+    border-radius: 12px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    height: 42px;
+}
+
+.calendar {
+    height: 42px;
+    width: 36px;
+    position: relative;
+    top: 20px;
+    right: 18px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+}
+
+.titleTable {
+    color: #757E95;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: none;
+    color: #A2A9B9;
+}
+
+.table> :not(caption)>*>* {
+    color: #A2A9B9;
+}
+.btnTable{
+    color: #A2A9B9;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    border-radius: 13px;
+    height: 34px;
+}

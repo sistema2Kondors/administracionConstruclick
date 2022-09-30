@@ -1,0 +1,42 @@
+<sb-layout-dashboard>
+    <div class="row" style="position: relative; top:135px;">
+        <div class="col-md-6 col-12 text-center">
+          <div class="contentNotfications">
+            <img src="assets/img/iconoNotification.png" style="width: 200px;">
+            <h2 class="titleOrders">Aumenta el número de venta</h2>
+            <p class="titleOrders"> Dale visibilidad a tu producto para obtener</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-12 text-center">
+          
+            <aw-wizard #wizard [navBarLocation]= "'right'">
+              
+                <!-- <p style="position: relative; left: 200px; top: 20px;">No tiene órdenes en curso</p> -->
+              
+                <aw-wizard-step stepTitle="Fecha de inicio de proceso del pedido" (stepEnter)="enterSecondStep($event,1)">
+                  <!-- Content of Step 1 -->
+                  <!-- <button type="button" awNextStep>Next Step</button>
+                  <button type="button" [awGoToStep]="{stepIndex: 2}">Go directly to third Step</button> -->
+                </aw-wizard-step>
+                <aw-wizard-step stepTitle="Fecha de envio" awOptionalStep (stepEnter)="enterSecondStep($event,2)">
+                  <!-- Content of Step 2 -->
+                  <!-- <button type="button" awPreviousStep>Go to previous step</button>
+                  <button type="button" awNextStep>Go to next step</button> -->
+                </aw-wizard-step>
+                <aw-wizard-step stepTitle="Trayecto del pedido" awOptionalStep (stepEnter)="enterSecondStep($event,3)">
+                  <!-- Content of Step 2 -->
+                  <!-- <button type="button" awPreviousStep>Go to previous step</button>
+                  <button type="button" awNextStep>Go to next step</button> -->
+                </aw-wizard-step>
+                <aw-wizard-step stepTitle="Llegada del pedido" (stepEnter)="enterSecondStep($event,4)">
+                  <!-- Content of Step 3 -->
+                  <!-- <button type="button" awPreviousStep>Previous Step</button>
+                  <button type="button" >Finish</button> -->
+                </aw-wizard-step>
+              
+            </aw-wizard>
+        </div>
+      </div>
+      
+
+</sb-layout-dashboard>

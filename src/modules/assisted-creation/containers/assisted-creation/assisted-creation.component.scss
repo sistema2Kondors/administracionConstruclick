@@ -1,0 +1,34 @@
+
+.contentBtnMensajes{
+    padding: 38px;
+}
+
+.btnBack{
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 113px;
+}
+.btnPaso{
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 38%;
+}
+.contentPaso{
+    display: flex;
+    justify-content: flex-end;
+    padding: 38px;
+}
+
+
+.btnProduct{
+    color: #EBECF0;
+    background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    border-radius: 13px;
+    width: 18%;
+    height: 44px;
+}

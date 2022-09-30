@@ -1,0 +1,64 @@
+
+.contentBtnMensajes{
+    padding: 38px;
+}
+
+.btnBack{
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 113px;
+}
+.btnPaso{
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 38%;
+}
+.contentPaso{
+    display: flex;
+    justify-content: flex-end;
+    padding: 38px;
+}
+.contentCard{
+    padding: 0px 110px;
+    text-align: center;
+}
+.contentTitle{
+    text-align: start;
+    font-size: 18px ;
+    padding: 27px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 301px;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 24px;
+    background: transparent;
+}
+
+.iconoTienda{
+    width: 18%;
+    height: auto;
+}
+
+.textCard{
+    color: #757E95;
+    opacity: 1;
+}
+
+.btnCardCreacion{
+    background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 5px #ffffff;
+    border-radius: 11px;
+    opacity: 1;
+    color: #EBECF0;
+    width: 39%;
+    height: 45px;
+}

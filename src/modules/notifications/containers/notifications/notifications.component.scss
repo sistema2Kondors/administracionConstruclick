@@ -1,0 +1,42 @@
+.titleNotifications{
+    position: relative;
+    left: 24px;
+    color: #757E95;
+}
+
+nav{
+    background: none;
+}
+
+.nav-tabs{
+    border-bottom: none;
+}
+
+.nav-tabs .nav-link {
+    color: #757E95;
+    border: 2px solid transparent;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    border-color: transparent transparent #FC6721;
+    background: transparent;
+}
+.mensaje1{
+    color: #757E95;
+}
+.contentBtnMensajes{
+    padding: 38px;
+}
+
+.btnMensajes{
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 138px;
+}
+
+.contentNotfications{
+    text-align: center;
+    margin-top: 53px;
+}

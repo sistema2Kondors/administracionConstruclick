@@ -1,0 +1,50 @@
+
+.contentCard{
+    position: relative;
+    top: 80px;
+}
+.iconoTienda{
+    width: 62%;
+    height: auto;
+    position: relative;
+    left: 46px;
+    top: 33px;
+}
+
+.card-title{
+    margin-top: 23px;
+    color: #757E95;
+}
+.textCard1{
+    color: #757E95;
+    opacity: 1;
+}
+
+.textCard2{
+    margin: 0;
+}
+
+.colorSmall{
+    color: #757E95;
+}
+
+.btnCardTienda{
+    background: transparent linear-gradient(98deg, #B2BFE1 0%, #91A3CE 100%) 0% 0% no-repeat padding-box;
+    border-radius: 11px;
+    border: none;
+    color: #FC6721;
+    position: relative;
+    top: 14px;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 226px;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 24px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+}
