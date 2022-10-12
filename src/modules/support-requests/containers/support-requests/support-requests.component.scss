@@ -1,0 +1,41 @@
+.contentSoporte{
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    top:20px;
+}
+.form-select {
+    background-color: #EBECF0;
+    border: 1px solid grey;
+    border-radius: 10px 0px 0px 10px;
+    height: auto;
+    color: #C9CCDA;
+    width: 100%;
+}
+.inputSoporte{
+    background: #EBECF0;
+    border: 1px solid grey;
+    border-radius: 0px 14px 14px 0px;
+    height: auto;
+    width: 100%;
+    position: relative;
+    right: 24px;
+}
+.textCenter{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 77px;
+}
+.iconoTienda{
+    width: 50%;
+    height: auto;
+    position: relative;
+    left: 100px;
+    
+}
+.titleCentro{
+    color: #757E95;
+    text-align: center;
+    font-size: 25px;
+}

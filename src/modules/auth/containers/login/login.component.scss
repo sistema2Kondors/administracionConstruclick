@@ -1,1 +1,61 @@
 @import 'styles/variables.scss';
+
+.contentLogo{
+    text-align: center;
+    padding-top: 200px;
+    background: transparent linear-gradient(79deg, #E6E7ED 0%, #F7F8FA 100%) 0% 0% no-repeat padding-box;
+    box-shadow: 3px 10px 20px #00000019;
+    padding-bottom: 200px;
+}
+.contentForm{
+    text-align: center;
+    padding: 200px 0px 134px 0px;
+    background:  #EBECF0;
+}
+.card{
+    background: #EBECF0 0% 0% no-repeat padding-box !important;
+}
+.card .card-header {
+    padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
+    margin-bottom: 0;
+    color: #757E95;
+    background-color: transparent; 
+    border-bottom: none; 
+}
+.titleLogin{
+    color: #757E95;
+}
+.textLogin{
+    color: #FF6600;
+}
+
+.form-control {
+    width: 84%;
+    height: 39px;
+    padding: 0.375rem 0.75rem;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background: #E1E3ED 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    background-clip: padding-box;
+    border: none;
+    border-radius: 45px;
+    
+
+}
+
+.form-group{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.btnLogin{
+    color: #ffff;
+    background: transparent linear-gradient(147deg, #FF6600 0%, #FF6600 1%, #FF8A00 100%) 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 138px;
+}

@@ -111,6 +111,13 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'crear-producto',
+        loadChildren: () =>
+            import('modules/create-product/create-product-routing.module').then(
+                m => m.CreateProductRoutingModule
+            ),
+    },
+    {
         path: '**',
         pathMatch: 'full',
         loadChildren: () =>
