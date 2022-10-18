@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ArchwizardModule } from 'angular-archwizard';
 import { NgWizardConfig, NgWizardModule, THEME } from 'ng-wizard';
@@ -19,6 +20,7 @@ const ngWizardConfig: NgWizardConfig = {
         HttpClientModule,
         NgWizardModule.forRoot(ngWizardConfig),
         ArchwizardModule,
+        ReactiveFormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

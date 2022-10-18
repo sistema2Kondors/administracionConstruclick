@@ -1,6 +1,14 @@
+.contentInformation{
+    padding-bottom: 95px;
+}
 .contenedorFormulario {
     padding: 0px 110px;
     text-align: center;
+}
+@media(max-width: 768px) {
+    .contenedorFormulario{
+        padding: 0px;
+    }
 }
 .titlePersonal{
     display: flex;
@@ -23,4 +31,17 @@
     height: 46px;
     color: #C9CCDA;
     margin: 6px;
+}
+
+.contentBtnNext{
+    display: flex;
+    justify-content: flex-end;
+    padding: 28px;
+}
+.btnGuardar{
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 113px;
 }

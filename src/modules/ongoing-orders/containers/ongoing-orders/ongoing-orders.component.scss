@@ -1,3 +1,11 @@
+.contentCurso{
+    padding-top: 82px;
+}
+@media(max-width: 768px) {
+    .contentCurso{
+        padding-top: 16px;
+    }
+}
 .text-center{
     text-align: center;
 }

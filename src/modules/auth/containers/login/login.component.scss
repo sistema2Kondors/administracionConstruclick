@@ -1,16 +1,33 @@
 @import 'styles/variables.scss';
 
 .contentLogo{
-    text-align: center;
-    padding-top: 200px;
     background: transparent linear-gradient(79deg, #E6E7ED 0%, #F7F8FA 100%) 0% 0% no-repeat padding-box;
     box-shadow: 3px 10px 20px #00000019;
-    padding-bottom: 200px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media(max-width: 768px) {
+    .contentLogo{
+        height: 16vh;
+    }
 }
 .contentForm{
+    background: #EBECF0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media(max-width: 768px) {
+    .contentForm{
+        height: 83vh;
+    }
+}
+form{
+    width: 78%;
     text-align: center;
-    padding: 200px 0px 134px 0px;
-    background:  #EBECF0;
 }
 .card{
     background: #EBECF0 0% 0% no-repeat padding-box !important;
@@ -41,9 +58,7 @@
     box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
     background-clip: padding-box;
     border: none;
-    border-radius: 45px;
-    
-
+    border-radius: 11px;
 }
 
 .form-group{
@@ -52,6 +67,16 @@
     padding: 5px;
 }
 
+.logos{
+    width: 15%;
+    padding: 10px;
+    border-radius: 37px;
+}
+@media(max-width: 768px) {
+    .logos{
+        width: 25%;
+    }
+}
 .btnLogin{
     color: #ffff;
     background: transparent linear-gradient(147deg, #FF6600 0%, #FF6600 1%, #FF8A00 100%) 0% 0% no-repeat padding-box;
@@ -59,3 +84,8 @@
     border-radius: 30px;
     width: 138px;
 }
+.btnLogin:hover {
+    background: #FF6600;
+    color: #fff;
+    border: none;
+  }

@@ -31,7 +31,7 @@ export const sideNavItems: SideNavItems = {
         link: '/charts',
     },
     notifications: {
-        icon: 'table',
+        icon: 'bell',
         text: 'Notificaciones',
         link: '/notificaciones',
     },

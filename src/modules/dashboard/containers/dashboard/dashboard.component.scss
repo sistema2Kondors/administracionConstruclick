@@ -19,21 +19,22 @@
 }
 
 .contentCards{
-    position: relative;
-    top: 113px;
+    padding-top: 55px;
 }
 
 .titleVentas{
     color: #757E95;
 }
 .contentBtnContinue{
-    padding: 38px;
     display: flex;
     justify-content: flex-end;
-    position: relative;
-    top: 77px;
+    padding-top: 70px;
 }
-
+@media(max-width: 768px) {
+    .contentBtnContinue{
+        padding-top: 12px;
+    }
+  }
 .btnContinue{
     color: #FC6721;
     background: #EBECF0 0% 0% no-repeat padding-box;
@@ -41,3 +42,9 @@
     border-radius: 30px;
     width: 138px;
 }
+.btnContinue:hover {
+    background: #EBECF0;
+    color: #FC6721;
+    border: none;
+  }
+

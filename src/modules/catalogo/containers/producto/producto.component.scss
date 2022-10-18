@@ -10,20 +10,30 @@
     background-color: #EBECF0;
     border: 1px solid grey;
     border-radius: 10px 0px 0px 10px;
-    // box-shadow: inset -2.12px -2.12px 6px #ffffff;
     height: auto;
     color: #C9CCDA;
     width: 100%;
 }
+@media(max-width: 768px) {
+    .form-select{
+        width: 95%;
+        margin: 13px 0px 0px 0px;
+    }
+}
+
 .inputProduct{
     background: #EBECF0;
     border: 1px solid grey;
     border-radius: 0px 14px 14px 0px;
-    // box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
     height: auto;
     width: 38%;
     position: relative;
-    right: 24px;
+}
+@media(max-width: 768px) {
+    .inputProduct{
+        width: 95%;
+        margin: 13px 0px 0px 0px;
+    }
 }
 .btnProduct{
     color: #EBECF0;
@@ -33,6 +43,11 @@
     width: 100%;
     height: 44px;
 }
+.btnProduct:hover {
+    background: #B2BFE1;
+    color: #fff;
+    border: none;
+ }
 
 .btnTable{
     color: #A2A9B9;

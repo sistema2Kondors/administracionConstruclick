@@ -3,6 +3,12 @@
     left: 24px;
     color: #757E95;
 }
+@media(max-width: 768px) {
+    .titleNotifications{
+        left: 0px;
+        text-align: center;
+    }
+}
 
 nav{
     background: none;
@@ -26,6 +32,11 @@ nav{
 }
 .contentBtnMensajes{
     padding: 38px;
+}
+@media(max-width: 768px) {
+    .contentBtnMensajes{
+        padding: 35px 0px 35px 8px;
+    }
 }
 
 .btnMensajes{

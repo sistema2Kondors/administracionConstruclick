@@ -4,6 +4,9 @@
     position: relative;
     top:20px;
 }
+.selectEstado{
+    border-radius: 10px !important; 
+}
 .form-select {
     background-color: #EBECF0;
     border: 1px solid grey;
@@ -12,6 +15,11 @@
     color: #C9CCDA;
     width: 100%;
 }
+@media(max-width: 768px) {
+    .form-select{
+        margin: 20px 0px 0px 0px;
+    }
+}
 .inputSoporte{
     background: #EBECF0;
     border: 1px solid grey;
@@ -19,20 +27,21 @@
     height: auto;
     width: 100%;
     position: relative;
-    right: 24px;
+    
+}
+@media(max-width: 768px) {
+    .inputSoporte{
+        margin: 20px 0px 0px 0px;
+    }
 }
 .textCenter{
     display: flex;
     justify-content: center;
-    position: relative;
-    top: 77px;
+    padding-top: 98px;
 }
 .iconoTienda{
-    width: 50%;
+    width: 42%;
     height: auto;
-    position: relative;
-    left: 100px;
-    
 }
 .titleCentro{
     color: #757E95;

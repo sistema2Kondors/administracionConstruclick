@@ -15,8 +15,9 @@
     background: #EBECF0 0% 0% no-repeat padding-box;
     box-shadow: inset -2.12px -2.12px 6px #ffffff;
     border-radius: 30px;
-    width: 38%;
+    width: auto;
 }
+
 .contentPaso{
     display: flex;
     justify-content: flex-end;
@@ -59,6 +60,6 @@
     border-radius: 11px;
     opacity: 1;
     color: #EBECF0;
-    width: 39%;
+    width: auto;
     height: 45px;
 }

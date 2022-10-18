@@ -1,9 +1,11 @@
 <sb-layout-dashboard><div class="row">
-    <div class="col-md-10">
+    <div class="col-md-9">
         <sb-dashboard-head title="Inventario de productos" [hideBreadcrumbs]="false"></sb-dashboard-head>
     </div>
-    <div class="col-md-2">
-        <button type="button" class="btn btnContinue">ACTUALIZACIÓN DE CSV</button>
+    <div class="col-md-3">
+        <div class="contentBtnCsv">
+            <button type="button" class="btn btnCsv">ACTUALIZACIÓN DE CSV</button>
+        </div>
     </div>
 </div>
         <div class="row contentProduct">
@@ -15,7 +17,7 @@
                     <option value="3">Three</option>
                 </select>
             </div>
-            <div class="col-md-2 col-12">
+            <div class="col-md-2 col-6">
                 <select class="form-select borderSelect" aria-label="Default select example">
                     <option selected>Selección</option>
                     <option value="1">One</option>
@@ -24,7 +26,7 @@
                 </select>
                 
             </div>
-            <div class="col-md-2 col-12">
+            <div class="col-md-2 col-6">
                 <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
                 placeholder="Buscar" aria-describedby="inputGroup-sizing-default">
             </div>

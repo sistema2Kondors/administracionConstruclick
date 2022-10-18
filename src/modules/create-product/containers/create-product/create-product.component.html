@@ -1,0 +1,91 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="contentBtnMensajes">
+                <button type="button" class="btn btnContinue" routerLink="/tienda"> < VOLVER</button>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="container-fluid">
+            <div class="contentProduct">
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <h1 class="titleProduct">Completa la información del producto</h1>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <label>Nombre Producto</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
+                            placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="nameProduct">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
+                            placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <textarea  class="textDescription" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="productDescription"></textarea> 
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input"
+                            placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input"
+                            placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar imagen principal</label>
+                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="mainImage">
+                    </div> 
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar hoja de seguridad</label>
+                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="safetySheet">
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <label for="">Identificación de Proveedor</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
+                            placeholder="Nombre" aria-describedby="inputGroup-sizing-default" formControlName="supplierIdentification">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
+                            placeholder="ID" aria-describedby="inputGroup-sizing-default" formControlName="idSupplier">
+                    </div>
+                    
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar Ficha Técnica</label>
+                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="dataSheet">
+                    </div>
+                    
+                    <div class="col-md-6 col-12">
+                        <label for="">Categoría de Producto</label>
+                        <select class="form-select" aria-label="Default select example">
+                            <option disable>Categorias</option>
+                            <option value="1">Cemento</option>
+                            <option value="2">Pisos</option>
+                            <option value="3">Baños</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar Carrusel de imágenes</label>
+                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" formControlName="carouselImages">
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class="contentBtnNext">
+                            <button type="submit" class="btn btnContinue" routerLink=""> Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </form>
+</sb-layout-dashboard>
