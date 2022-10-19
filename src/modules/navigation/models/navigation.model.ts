@@ -15,7 +15,7 @@ export interface SideNavItems {
 }
 
 export interface SideNavItem {
-    icon?: string;
+    img?: string;
     text: string;
     link?: string;
     submenu?: SideNavItem[];

@@ -21,42 +21,42 @@ export const sideNavSections: SideNavSection[] = [
 
 export const sideNavItems: SideNavItems = {
     dashboard: {
-        icon: 'tachometer-alt',
+        img: 'assets/img/iconos-menu/logo.png',
         text: 'Dashboard',
         link: '/dashboard',
     },
     estadistica: {
-        icon: 'chart-area',
+        img: 'assets/img/iconos-menu/iconoEstadisticas.png',
         text: 'Estadisticas',
         link: '/charts',
     },
     notifications: {
-        icon: 'bell',
+        img: 'assets/img/iconos-menu/iconoNotificaciones.png',
         text: 'Notificaciones',
         link: '/notificaciones',
     },
     tienda: {
-        icon: 'table',
+        img: 'assets/img/iconos-menu/iconoTienda.png',
         text: 'Mi tienda',
         link: '/tienda',
     },
     ordenes: {
-        icon: 'table',
+        img: 'assets/img/iconos-menu/iconoOrdenesCurso.png',
         text: 'Órdenes en curso',
         link: '/ordenes-curso',
     },
     historial: {
-        icon: 'table',
+        img: 'assets/img/iconos-menu/iconoHistorialOrdenes.png',
         text: 'Historial Órdenes',
         link: '/historial-ordenes',
     },
     pagos: {
-        icon: 'table',
+        img: 'assets/img/iconos-menu/iconoPagos.png',
         text: 'Pagos',
         link: '/pagos',
     },
     catalogo: {
-        icon: 'columns',
+        img: 'assets/img/iconos-menu/iconoCatalogo.png',
         text: 'Catálogo',
         submenu: [
             {
@@ -70,17 +70,17 @@ export const sideNavItems: SideNavItems = {
         ],
     },
     informacion: {
-        icon: 'table',
+        img: 'assets/img/iconos-menu/iconoInformacionPersonal.png',
         text: 'Información Personal',
         link: '/informacion-personal',
     },
     centro: {
-        icon: 'table',
+        img: 'assets/img/iconos-menu/iconoCentroAyuda.png',
         text: 'Centro de ayuda',
         link: '/centro-ayuda',
     },
     solicitudes: {
-        icon: 'table',
+        img: 'assets/img/iconos-menu/iconoSolicitudSoporte.png',
         text: 'Solicitudes de soporte',
         link: '/solicitudes-soporte',
     },
