@@ -37,9 +37,7 @@
                 "./node_modules"
               ]
             },
-            "scripts": [
-              
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -109,9 +107,7 @@
                 "./node_modules"
               ]
             },
-            "scripts": [
-              
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -142,5 +138,8 @@
       }
     }
   },
-  "defaultProject": "sb-admin-angular"
+  "defaultProject": "sb-admin-angular",
+  "cli": {
+    "analytics": false
+  }
 }

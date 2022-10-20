@@ -7,7 +7,7 @@
             </div>
         </div>
     </div>
-    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="productForm" (ngSubmit)="onProducts()">
         <div class="container-fluid">
             <div class="contentProduct">
                 <div class="row">
@@ -18,74 +18,121 @@
                         <label>Nombre Producto</label>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
-                            placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="nameProduct">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name">
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
-                            placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
                     </div>
                     <div class="col-md-12 col-12">
-                        <textarea  class="textDescription" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="productDescription"></textarea> 
+                        <textarea class="textDescription" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="longDescription"></textarea>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input"
-                            placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input"
-                            placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
                     </div>
+
                     <div class="col-md-6 col-12">
-                        <label for="">Agregar imagen principal</label>
-                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" formControlName="mainImage">
-                    </div> 
-                    <div class="col-md-6 col-12">
-                        <label for="">Agregar hoja de seguridad</label>
-                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" formControlName="safetySheet">
+                        <label for="">Proveedor</label>
+                        <input type="text" class="form-control inputProduct" formControlName="idProvider">
+                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
                     </div>
-                    <div class="col-md-12 col-12">
-                        <label for="">Identificación de Proveedor</label>
-                    </div>
+
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
-                            placeholder="Nombre" aria-describedby="inputGroup-sizing-default" formControlName="supplierIdentification">
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
-                            placeholder="ID" aria-describedby="inputGroup-sizing-default" formControlName="idSupplier">
-                    </div>
-                    
-                    <div class="col-md-6 col-12">
-                        <label for="">Agregar Ficha Técnica</label>
-                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" formControlName="dataSheet">
-                    </div>
-                    
-                    <div class="col-md-6 col-12">
-                        <label for="">Categoría de Producto</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option disable>Categorias</option>
-                            <option value="1">Cemento</option>
-                            <option value="2">Pisos</option>
-                            <option value="3">Baños</option>
+                        <label for="">Categoría del Producto</label>
+                        <select formControlName="category" name="category" class="form-select" aria-label="Default select example">
+                            <option value="" selected="true" disabled="disabled">Seleccione categoria</option>
+                            <option  *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</option>
                         </select>
                     </div>
+
+
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar Ficha Técnica</label>
+                        <input type="file" id="input" class="form-control inputFile" (change)="PdfSelectedData($event)">
+                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="dataSheet"> -->
+                    </div>
+
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar hoja de seguridad</label>
+                        <input type="file" class="form-control inputFile" (change)="PdfSelectedSafe($event)" />
+                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
+                    </div>
+
+
+                    <!-- <div class="col-md-12 col-12">
+                        <label for="">Proveedor</label>
+                    </div> -->
+                    <!-- <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Nombre" aria-describedby="inputGroup-sizing-default" formControlName="supplierIdentification">
+                    </div> -->
+                    <!-- <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="ID" aria-describedby="inputGroup-sizing-default" formControlName="idSupplier">
+                    </div> -->
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar imagen principal</label>
+                        <input type="file" class="form-control inputFile" (change)="onImgCover($event)" />
+                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="mainImage"> -->
+                    </div>
+
                     <div class="col-md-6 col-12">
                         <label for="">Agregar Carrusel de imágenes</label>
-                        <input type="file" class="form-control inputFile" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-default" formControlName="carouselImages">
+                        <input type="file" class="form-control inputFile" id="file" multiple (change)="selectFilesGallery($event)" />
+                        <div>
+                            <!-- <img *ngFor='let preview of previews' [src]="preview" class="preview"> -->
+                        </div>
+                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="carouselImages"> -->
                     </div>
+
+                    <!-- <div class="row"> -->
+                    <select formControlName="id" name="category">
+                            <option value="" selected="true" disabled="disabled">Seleccione un producto </option>
+                            <option  *ngFor="let item of selectedProducts" [value]="item._id"> {{item.name}}</option>
+                        </select>
+                    <div class="col-12">
+                        <label for="">Titulo</label>
+                        <input type="text" formControlName="title">
+                    </div>
+
+                    <div class="col-12">
+                        <label for="">Descripcion</label>
+                        <input type="text" formControlName="detailReview">
+                    </div>
+                    <!-- <div class="col-12">
+                            <label for="">Email</label>
+                            <input type="text" formControlName="emailOwner">
+            
+                        </div> -->
+                    <!-- </div> -->
+
+                    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
+
+
                     <div class="col-md-12 col-12">
                         <div class="contentBtnNext">
-                            <button type="submit" class="btn btnContinue" routerLink=""> Guardar</button>
+                            <button type="submit" class="btn btnContinue"> Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
-    
+
         </div>
     </form>
+
+
+
+    <!-- <div class="modal-header">
+        <h4 class="modal-title">Hi there!</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <p>Hello, {{ name }}!</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    </div> -->
+
+
+
 </sb-layout-dashboard>

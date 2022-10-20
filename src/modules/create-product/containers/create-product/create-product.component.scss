@@ -1,28 +1,31 @@
-.contentBtnMensajes{
+.contentBtnMensajes {
     display: flex;
     justify-content: flex-start;
     padding: 23px;
 }
 
-.titleProduct{
+.titleProduct {
     color: #757E95;
 }
-.contentProduct{
+
+.contentProduct {
     padding-top: 26px;
 }
-label{
+
+label {
     color: #4C556A;
     padding: 16px 0px 0px 11px;
 }
 
-.btnContinue{
+.btnContinue {
     color: #FC6721;
     background: #EBECF0 0% 0% no-repeat padding-box;
     box-shadow: inset -2.12px -2.12px 6px #ffffff;
     border-radius: 30px;
     width: 113px;
 }
-.inputProduct{
+
+.inputProduct {
     margin: 6px;
     border-radius: 12px;
     background: #EBECF0 0% 0% no-repeat padding-box;
@@ -30,7 +33,8 @@ label{
     box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
     height: 46px;
 }
-.textDescription{
+
+.textDescription {
     margin: 6px;
     border-radius: 12px;
     background: #EBECF0 0% 0% no-repeat padding-box;
@@ -39,7 +43,8 @@ label{
     height: 102px;
     width: 100%;
 }
-.inputFile{
+
+.inputFile {
     margin: 6px;
     border-radius: 12px;
     border: none;
@@ -49,12 +54,13 @@ label{
     padding: 0px;
     width: 62%;
 }
-.inputFile::before{
+
+.inputFile::before {
     content: "Seleccione archivo";
     position: absolute;
     padding: 5px;
     color: #fff;
-    width: 41.5%;
+    width: 35%;
     text-align: center;
     border-radius: 11px;
     cursor: pointer;
@@ -62,11 +68,13 @@ label{
     background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
     box-shadow: inset -2.12px -2.12px 6px #ffffff;
 }
+
 @media(max-width: 768px) {
-    .inputFile::before{
+    .inputFile::before {
         width: 48%;
     }
 }
+
 .form-select {
     background-color: #EBECF0;
     border: #EBECF0;
@@ -75,13 +83,15 @@ label{
     height: 46px;
     color: #C9CCDA;
 }
-.contentBtnNext{
+
+.contentBtnNext {
     display: flex;
     justify-content: flex-end;
     padding: 38px;
 }
+
 @media(max-width: 768px) {
-    .contentBtnNext{
+    .contentBtnNext {
         padding: 38px 0px 38px 0px;
     }
 }
