@@ -21,7 +21,7 @@ export const sideNavSections: SideNavSection[] = [
 
 export const sideNavItems: SideNavItems = {
     dashboard: {
-        img: 'assets/img/iconos-menu/logo.png',
+        img: 'assets/img/iconos-menu/Dashboard.png',
         text: 'Dashboard',
         link: '/dashboard',
     },

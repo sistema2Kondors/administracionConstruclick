@@ -29,31 +29,30 @@
                 <thead>
                     <tr>
                         <th class="titleTable" scope="col"></th>
-                        <th class="titleTable" scope="col">PRODUCTO</th>
-                        <th class="titleTable" scope="col">ID DE PAGO</th>
-                        <th class="titleTable" scope="col">PRESENTACIÓN</th>
+                        <th class="titleTable" scope="col">id</th>
+                        <th class="titleTable" scope="col">nombre</th>
+                        <th class="titleTable" scope="col">descripcion</th>
                         <th class="titleTable" scope="col">SKU</th>
-                        <th class="titleTable" scope="col"></th>
+                        <th class="titleTable" scope="col">images</th>
                         <th class="titleTable" scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let payment of payments">
-                        <td><img src="assets/img/iconoMas.png" style="width: 35px;"></td>
-                        <th scope="row">{{ payment.product }}</th>
-                        <td>
-                            {{ payment.idPago | number }}
-                        </td>
-                        <td>{{ payment.presentation }}</td>
-                        <td>{{ payment.sku }}</td>
+                    <tr *ngFor="let item of productos">
+                        <td><img [src]=item.images[0] class="iconosTable"></td>
+
+                        <th scope="row">{{ item._id }}</th>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.longDescription }}</td>
+                        <td>{{ item.sku }}</td>
                         <td><button type="button" class="btn btnTable">Ver detalle</button></td>
-                        <td><img src="assets/img/iconoBasura.png" style="width: 20px;"></td>
+                        <td><img src="assets/img/iconoBasura.png" class="iconosTable"></td>
                        
                     </tr>
                 </tbody>
             </table>
         
-            <div class="d-flex justify-content-end p-2">
+            <!-- <div class="d-flex justify-content-end p-2">
                 <select class="cantidadLista" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
                     <option [ngValue]="2">2 </option>
                     <option [ngValue]="4">5 </option>
@@ -62,6 +61,6 @@
                 <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
                     (pageChange)="refreshCountries()">
                 </ngb-pagination>
-            </div>
+            </div> -->
         </div>
     </sb-layout-dashboard> 
