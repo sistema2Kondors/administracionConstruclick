@@ -2,17 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CategoriesServiceService } from '@app/services/category/categories-service.service';
 import { ProductsServiceService } from '@app/services/products/products-service.service';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
-
-    
-// export class NgbdModalContent {
-// 	@Input() name;
-
-// 	constructor(public activeModal: NgbActiveModal) {}
-// }
-
-
+import { ProviderServiceService } from '@app/services/provider/provider-service.service';
+import { IProviderModel } from '@modules/create-provider/model/provider.model';
 
 
 @Component({
@@ -20,10 +11,16 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     templateUrl: './create-product.component.html',
     styleUrls: ['./create-product.component.scss'],
 })
+
+
+
 export class CreateProductComponent implements OnInit {
     
+    formModal:any;
+
     @Input() name:string;
     selectedProducts: any[] = [];
+    selectedProvider: any[] = [];
     dataCategoriesFather: any[] = [];
     dataCategories: any[] = [];
     arrayCategories: any[] = [];
@@ -35,21 +32,19 @@ export class CreateProductComponent implements OnInit {
     previews: string[] = [];
 
     productForm: FormGroup;
+    reviewProductForm: FormGroup;
 
-    constructor(private _productsService: ProductsServiceService, private _categoriesService: CategoriesServiceService) {}
+    constructor(private _productsService: ProductsServiceService, private _categoriesService: CategoriesServiceService, private _providerService: ProviderServiceService) {}
 
     ngOnInit() {
         this.getProductsAll();
         this.getCategories();
         this.formProductNew();
-
+        this.formProductReview();
+        this.getAllProvider();
     }
 
 
-    // open() {
-	// 	const modalRef = this.modalService.open(CreateProductComponent);
-	// 	modalRef.componentInstance.name = 'World';
-	// }
 
 formProductNew(){        
     this.productForm = new FormGroup({
@@ -63,10 +58,7 @@ formProductNew(){
         category: new FormControl('', [Validators.required]),
 
             // agregar review
-            id: new FormControl('', []),
-            title: new FormControl('', []),
-            detailReview: new FormControl('', []),
-            emailOwner: new FormControl('', [])
+   
 
         // nameProduct: new FormControl(''),
         // brand: new FormControl(''),
@@ -129,12 +121,24 @@ formProductNew(){
       }
 
 
+      formProductReview(){
+
+        this.reviewProductForm = new FormGroup({
+          id: new FormControl('', [Validators.required]),
+          title: new FormControl('', [Validators.required]),
+          detailReview: new FormControl('', [Validators.required]),
+          emailOwner: new FormControl('', [Validators.required])
+    
+        });
+      }
+
       registerReview(){
 
         let review = {
-        id: this.productForm.value.id,
-        title: this.productForm.value.title,
-        detailReview: this.productForm.value.detailReview,
+  
+        id: this.reviewProductForm.value.id,
+        title: this.reviewProductForm.value.title,
+        detailReview: this.reviewProductForm.value.detailReview,
         emailOwner: "construclick@gmail.com",
         }
   
@@ -180,7 +184,7 @@ formProductNew(){
     getProductsAll(){
 
         this._productsService.getAllProducts().subscribe(resp => {
-                // console.log("Productos",resp.data);
+                console.log("Productos",resp.data);
             for(let i in resp.data) {
     
                 this.selectedProducts.push(resp.data[i]);
@@ -209,5 +213,19 @@ formProductNew(){
               });
          
          }
+
+
+         getAllProvider(){
+
+            this._providerService.postAllProvider().subscribe(resp => {
+
+                this.selectedProvider = resp.data;
+
+                // console.log("proveedores", resp.data);
+                
+            });
+         }
+
+
 
 }

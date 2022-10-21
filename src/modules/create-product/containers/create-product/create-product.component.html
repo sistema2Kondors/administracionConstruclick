@@ -35,7 +35,12 @@
 
                     <div class="col-md-6 col-12">
                         <label for="">Proveedor</label>
-                        <input type="text" class="form-control inputProduct" formControlName="idProvider">
+                        <select formControlName="idProvider" name="category" class="form-select" aria-label="Default select example">
+                            <option value="" selected="true" disabled="disabled">Seleccione Proveedor</option>
+                            <option  *ngFor="let item of selectedProvider" [value]="item._id">{{item.name}}</option>
+                        </select>
+
+                        <!-- <input type="text" class="form-control inputProduct" formControlName="idProvider"> -->
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
                     </div>
 
@@ -85,30 +90,6 @@
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="carouselImages"> -->
                     </div>
 
-                    <!-- <div class="row"> -->
-                    <select formControlName="id" name="category">
-                            <option value="" selected="true" disabled="disabled">Seleccione un producto </option>
-                            <option  *ngFor="let item of selectedProducts" [value]="item._id"> {{item.name}}</option>
-                        </select>
-                    <div class="col-12">
-                        <label for="">Titulo</label>
-                        <input type="text" formControlName="title">
-                    </div>
-
-                    <div class="col-12">
-                        <label for="">Descripcion</label>
-                        <input type="text" formControlName="detailReview">
-                    </div>
-                    <!-- <div class="col-12">
-                            <label for="">Email</label>
-                            <input type="text" formControlName="emailOwner">
-            
-                        </div> -->
-                    <!-- </div> -->
-
-                    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
-
-
                     <div class="col-md-12 col-12">
                         <div class="contentBtnNext">
                             <button type="submit" class="btn btnContinue"> Guardar</button>
@@ -120,18 +101,59 @@
         </div>
     </form>
 
+    <div class="row">
+        <div class="col-12">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
+                Agregar Especificaciones
+               </button>
+        </div>
+    </div>
 
 
-    <!-- <div class="modal-header">
-        <h4 class="modal-title">Hi there!</h4>
-        <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Agregar Especificaciones Productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="reviewProductForm" (ngSubmit)="registerReview()">
+
+                        <div class="row">
+                            <select formControlName="id" name="category">
+                                <option value="" selected="true" disabled="disabled">Seleccione un producto </option>
+                                <option  *ngFor="let item of selectedProducts" [value]="item._id"> {{item.name}}</option>
+                            </select>
+                            <div class="col-12">
+                                <label for="">Titulo</label>
+                                <input type="text" formControlName="title">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="">Descripcion</label>
+                                <input type="text" formControlName="detailReview">
+                            </div>
+                            <!-- <div class="col-12">
+                                <label for="">Email</label>
+                                <input type="text" formControlName="emailOwner">
+                
+                            </div> -->
+                        </div>
+                        <br>
+
+                        <button type="submit" class="btn btn-success"> Agregar</button>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="modal-body">
-        <p>Hello, {{ name }}!</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
-    </div> -->
 
 
 
