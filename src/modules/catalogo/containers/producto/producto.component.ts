@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductsServiceService } from '@app/services/products/products-service.service';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-productos',
@@ -18,8 +19,41 @@ export class ProductoComponent implements OnInit {
 
     getAllProducts() {
         this._productsServiceService.getAllProducts().subscribe((respuesta: any) => {
-            this.productos = respuesta.data;
-            console.log(respuesta);
+            const Array = [];
+            const actualizar = respuesta.data;
+            Array.push(actualizar)
+            this.productos = Array[0];
+       
         });
     }
+
+    deleteProduct(id:string){
+
+        Swal.fire({
+            title: '¿Está seguro?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: '¡Sí, bórralo!',
+            cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                this._productsServiceService.deleteProduct(id).subscribe(resp => {
+              
+                    this.getAllProducts();
+            });
+              Swal.fire(
+                '¡Eliminado!',
+                'Su archivo ha sido eliminado.',
+                'success'
+              )
+            }
+          })
+
+    }
+
+
+
 }

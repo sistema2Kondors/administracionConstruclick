@@ -1,58 +1,82 @@
 <sb-layout-dashboard>
     <sb-dashboard-head title="Catálogo de productos" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
-    
-        <div class="row contentProduct">
-            <div class="col-md-2 col-12">
-                <button type="button" class="btn btnProduct" routerLink="/creacion-masiva">Creación masiva</button>
-            </div>
-            <div class="col-md-2 col-12">
-                <button type="button" class="btn btnProduct">Agregar producto</button>
-            </div>
-            <div class="col-md-2 col-6">
-                <select class="form-select" aria-label="Default select example">
+
+    <div class="row contentProduct">
+        <div class="col-md-2 col-12">
+            <button type="button" class="btn btnProduct" routerLink="/creacion-masiva">Creación masiva</button>
+        </div>
+        <div class="col-md-2 col-12">
+            <button type="button" class="btn btnProduct">Agregar producto</button>
+        </div>
+        <div class="col-md-2 col-6">
+            <select class="form-select" aria-label="Default select example">
                     <option selected>Selección</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-                
-            </div>
-            <div class="col-md-6 col-6">
-                <input type="text" class="form-control inputProduct" aria-label="Sizing example input"
-                placeholder="Buscar" aria-describedby="inputGroup-sizing-default">
-            </div>
-        </div>
-    
-    
-        <div class="contentTable">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="titleTable" scope="col"></th>
-                        <th class="titleTable" scope="col">id</th>
-                        <th class="titleTable" scope="col">nombre</th>
-                        <th class="titleTable" scope="col">descripcion</th>
-                        <th class="titleTable" scope="col">SKU</th>
-                        <th class="titleTable" scope="col">images</th>
-                        <th class="titleTable" scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of productos">
-                        <td><img [src]=item.images[0] class="iconosTable"></td>
 
-                        <th scope="row">{{ item._id }}</th>
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.longDescription }}</td>
-                        <td>{{ item.sku }}</td>
-                        <td><button type="button" class="btn btnTable">Ver detalle</button></td>
-                        <td><img src="assets/img/iconoBasura.png" class="iconosTable"></td>
-                       
-                    </tr>
-                </tbody>
-            </table>
-        
-            <!-- <div class="d-flex justify-content-end p-2">
+        </div>
+        <div class="col-md-6 col-6">
+            <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Buscar" aria-describedby="inputGroup-sizing-default">
+        </div>
+    </div>
+
+
+    <div class="contentTable">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="titleTable" scope="col">Img</th>
+                    <!-- <th class="titleTable" scope="col">id</th> -->
+                    <th class="titleTable" scope="col">Nombre</th>
+                    <th class="titleTable" scope="col">Descripcion</th>
+                    <th class="titleTable" scope="col">Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of productos">
+                    <td><img [src]="item.coverImage[0]" class="iconosTable"></td>
+
+                    <!-- <th scope="row">{{ item._id }}</th> -->
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.longDescription | slice:0:42 }}...</td>
+                    <td>{{ item.price }}</td>
+
+                    <td><button type="button" class="btn btnTable" [routerLink]="['/catalogo/detalles-producto', item._id]">Ver detalle</button></td>
+                    <td>
+                        <button type="button" class="btn btn-close-white" (click)="deleteProduct(item._id)">
+                            <img src="assets/img/iconoBasura.png" class="iconosTable" >
+                      </button>
+
+                        <!-- <button type="button" class="btn btn-danger" (click)="deleteProduct(item._id)">Eliminar</button> -->
+
+                        <!-- <div class="modal fade" id="deleteProduct">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Eliminar Producto</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Esta seguro de eliminar este producto
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteProduct(item._id)">Eliminar</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <div class="d-flex justify-content-end p-2">
                 <select class="cantidadLista" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
                     <option [ngValue]="2">2 </option>
                     <option [ngValue]="4">5 </option>
@@ -62,5 +86,9 @@
                     (pageChange)="refreshCountries()">
                 </ngb-pagination>
             </div> -->
-        </div>
-    </sb-layout-dashboard> 
+    </div>
+
+
+
+
+</sb-layout-dashboard>
