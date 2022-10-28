@@ -4,6 +4,7 @@ import { CategoriesServiceService } from '@app/services/category/categories-serv
 import { ProductsServiceService } from '@app/services/products/products-service.service';
 import { ProviderServiceService } from '@app/services/provider/provider-service.service';
 import { IProviderModel } from '@modules/create-provider/model/provider.model';
+import { validate } from 'json-schema';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class CreateProductComponent implements OnInit {
     
     formModal:any;
 
-    @Input() name:string;
+    public submitted: boolean = false;
+
+    // @Input() name:string;
     selectedProducts: any[] = [];
     selectedProvider: any[] = [];
     dataCategoriesFather: any[] = [];
@@ -47,32 +50,40 @@ export class CreateProductComponent implements OnInit {
 
 
 formProductNew(){        
-    this.productForm = new FormGroup({
-
-        name: new FormControl('', [Validators.required]),
-        longDescription: new FormControl('', [Validators.required]),
-        brand: new FormControl('', [Validators.required]),
-        quantity: new FormControl('', [Validators.required]),
-        price: new FormControl('', [Validators.required]),
-        idProvider: new FormControl('', [Validators.required]),
-        category: new FormControl('', [Validators.required]),
-
-            // agregar review
-   
-
-        // nameProduct: new FormControl(''),
-        // brand: new FormControl(''),
-        // productDescription: new FormControl(''),
-        // quantity: new FormControl(''),
-        // price: new FormControl(''),
-        // mainImage: new FormControl(''),
-        // safetySheet: new FormControl(''),
-        // supplierIdentification: new FormControl(''),
-        // idSupplier: new FormControl(''),
-        // dataSheet: new FormControl(''),
-        // carouselImages: new FormControl(''),
-    });
+      this.productForm = new FormGroup({
+  
+        name: new FormControl('', [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(20),
+        ]),
+          longDescription: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+          brand: new FormControl('', [Validators.required, Validators.minLength(10)]),
+          quantity: new FormControl('', [Validators.required, Validators.minLength(5)]),
+          price: new FormControl('', [Validators.required, Validators.minLength(10)]),
+          idProvider: new FormControl('', [Validators.required]),
+          category: new FormControl('', [Validators.required]),
+  
+  
+          // agregar review
+  
+          // nameProduct: new FormControl(''),
+          // brand: new FormControl(''),
+          // productDescription: new FormControl(''),
+          // quantity: new FormControl(''),
+          // price: new FormControl(''),
+          // mainImage: new FormControl(''),
+          // safetySheet: new FormControl(''),
+          // supplierIdentification: new FormControl(''),
+          // idSupplier: new FormControl(''),
+          // dataSheet: new FormControl(''),
+          // carouselImages: new FormControl(''),
+      });
     }
+
+
+
+
 
     PdfSelectedData(event:any){
         this.selectedPdfData = event.target.files[0];
@@ -81,32 +92,46 @@ formProductNew(){
         this.selectedPdfSafe = event.target.files[0];
       }
 
+
+    onResetForm(){
+      this.productForm.reset();
+    }
+    
+
     onProducts(){
-
-        const fd = new FormData();
-    
-        fd.append('name', this.productForm.get('name')?.value);
-        fd.append('longDescription', this.productForm.get('longDescription')?.value);
-        fd.append('brand', this.productForm.get('brand')?.value);
-        fd.append('quantity', this.productForm.get('quantity')?.value);
-        fd.append('price', this.productForm.get('price')?.value);
-    
-        for (var i = 0; i < this.selectedImgArray.length; i++) { 
-          fd.append("images[]", this.selectedImgArray[i]);
-        }
-     
-        fd.append('dataSheet', this.selectedPdfData);
-        fd.append('idProvider', this.productForm.get('idProvider')?.value);
-        fd.append('safetySheet', this.selectedPdfSafe);
-        fd.append('category', this.productForm.get('category')?.value);
-        fd.append('coverImage', this.selectedImgCover);
         
-            this._productsService.createNewProducts(fd).subscribe(res => {
+        if (this.productForm.valid){
+          const fd = new FormData();
+    
+          fd.append('name', this.productForm.get('name')?.value);
+          fd.append('longDescription', this.productForm.get('longDescription')?.value);
+          fd.append('brand', this.productForm.get('brand')?.value);
+          fd.append('quantity', this.productForm.get('quantity')?.value);
+          fd.append('price', this.productForm.get('price')?.value);
+      
+          for (var i = 0; i < this.selectedImgArray.length; i++) { 
+            fd.append("images[]", this.selectedImgArray[i]);
+          }
+       
+          fd.append('dataSheet', this.selectedPdfData);
+          fd.append('idProvider', this.productForm.get('idProvider')?.value);
+          fd.append('safetySheet', this.selectedPdfSafe);
+          fd.append('category', this.productForm.get('category')?.value);
+          fd.append('coverImage', this.selectedImgCover);
+          
+              this._productsService.createNewProducts(fd).subscribe(res => {
+  
+                      console.log("Producto creado", res);
+                      
+  
+              })
+              this.onResetForm();
+        } else {
+          this.submitted = true;
+          console.log('Not Valid');
+        }
 
-                    console.log("Producto creado", res);
-                    
 
-            })
 
         // this.http
         //   .post(`${environment.DOMAIN_URL}/${ProductsServiceEntries.PRODUCTS_ENDPOINT}`, fd)
@@ -120,6 +145,7 @@ formProductNew(){
         //   });
       }
 
+      get name() { return this.productForm.get('name');}
 
       formProductReview(){
 

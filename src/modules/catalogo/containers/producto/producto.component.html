@@ -8,7 +8,7 @@
             <div class="col-md-2 col-12">
                 <button type="button" class="btn btnProduct">Agregar producto</button>
             </div>
-            <div class="col-md-2 col-6">
+            <div class="col-md-2 col-6 offset-1">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Selección</option>
                     <option value="1">One</option>
@@ -39,7 +39,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of productos">
-                        <td><img [src]=item.images[0] class="iconosTable"></td>
+                        <td><img [src]="item.coverImage[0]" class="iconosTable"></td>
 
                         <th scope="row">{{ item._id }}</th>
                         <td>{{ item.name }}</td>

@@ -19,18 +19,61 @@
                     </div>
                     <div class="col-md-6 col-12">
                         <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name">
+                        <!-- <div class="alert-danger" *ngIf="name.invalid && (name.touched || submitted)">
+                            <div class="container-error-message" *ngIf="name.errors.required">
+                                El nombre es requerido.
+                            </div>
+                            <div class="container-error-message" *ngIf="name.errors.minlength">
+                                El nombre debe tener mínimo 5 caracteres.
+                            </div>
+                            <div class="container-error-message" *ngIf="name.errors.maxlength">
+                                Has pasado el numero de maximo caracteres permitidos.
+                            </div>
+                        </div> -->
                     </div>
                     <div class="col-md-6 col-12">
                         <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
+                        <!-- <div class="alert-danger" *ngIf="brand.invalid && (brand.dirty || brand.touched)">
+                            <div class="container-error-message" *ngIf="brand.errors.required">
+                                Marca es requerido
+                            </div>
+                            <div class="container-error-message" *ngIf="brand.errors.minLength">
+                                Mínimo de carácteres es de 10
+                            </div>
+                        </div> -->
                     </div>
                     <div class="col-md-12 col-12">
                         <textarea class="textDescription" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="longDescription"></textarea>
-                    </div>
+                        <!-- <div class="alert-danger" *ngIf="longDescription.invalid && (longDescription.dirty || longDescription.touched)">
+                            <div class="container-error-message" *ngIf="longDescription.errors.required">
+                                Descripción es requerido
+                            </div>
+                            <div class="container-error-message" *ngIf="longDescription.errors.minLength">
+                                Maximo de carácteres es de 100
+                            </div>
+                        </div> -->
                     <div class="col-md-6 col-12">
                         <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
+                            <!-- <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
+                                <div class="container-error-message" *ngIf="quantity.errors.required">
+                                    Cantidad es requerido
+                                </div>
+                                <div class="container-error-message" *ngIf="name.errors.minLength">
+                                    Mínimo de carácteres es de 5
+                                </div>
+                            </div> -->
+                        </div>
                     </div>
                     <div class="col-md-6 col-12">
                         <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
+                        <!-- <div class="alert-danger" *ngIf="price.invalid && (price.dirty || price.touched)">
+                            <div class="container-error-message" *ngIf="price.errors.required">
+                                Precio es requerido
+                            </div>
+                            <div class="container-error-message" *ngIf="price.errors.minLength">
+                                Mínimo de carácteres es de 10
+                            </div>
+                        </div> -->
                     </div>
 
                     <div class="col-md-6 col-12">
@@ -89,7 +132,14 @@
                         </div>
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="carouselImages"> -->
                     </div>
-
+                    <div class="col-12">
+                        <div class="especificaciones">
+                            <button type="button" class="btn btnEspecificaciones" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
+                                Agregar Especificaciones
+                            </button>
+                        </div>
+                        
+                    </div>
                     <div class="col-md-12 col-12">
                         <div class="contentBtnNext">
                             <button type="submit" class="btn btnContinue"> Guardar</button>
@@ -97,42 +147,32 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </form>
-
-    <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
-                Agregar Especificaciones
-               </button>
-        </div>
-    </div>
-
 
     <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Agregar Especificaciones Productos</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">AGREGAR ESPECIFICACIONES DEL PRODUCTO</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form [formGroup]="reviewProductForm" (ngSubmit)="registerReview()">
 
                         <div class="row">
-                            <select formControlName="id" name="category">
+                            <select formControlName="id" name="category" class="selectProduct" >
                                 <option value="" selected="true" disabled="disabled">Seleccione un producto </option>
                                 <option  *ngFor="let item of selectedProducts" [value]="item._id"> {{item.name}}</option>
                             </select>
-                            <div class="col-12">
+                            <div class="col-md-12 col-12">
                                 <label for="">Titulo</label>
-                                <input type="text" formControlName="title">
+                                <input type="text" class="inputEspecificaciones" formControlName="title">
                             </div>
 
                             <div class="col-12">
                                 <label for="">Descripcion</label>
-                                <input type="text" formControlName="detailReview">
+                                <input type="text" class="textDescription" formControlName="detailReview">
                             </div>
                             <!-- <div class="col-12">
                                 <label for="">Email</label>
@@ -142,13 +182,14 @@
                         </div>
                         <br>
 
-                        <button type="submit" class="btn btn-success"> Agregar</button>
+                        
 
                     </form>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btnAgregar"> Agregar</button>
+                    <button type="button" class="btn btnCerrar" data-bs-dismiss="modal">Cerrar</button>
                     <!-- <button type="button" class="btn btn-primary">Understood</button> -->
                 </div>
             </div>
