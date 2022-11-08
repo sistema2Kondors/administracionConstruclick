@@ -1,0 +1,69 @@
+<sb-layout-dashboard>
+
+    <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
+        <div *ngFor="let item of productsDetails">
+            <div class="input-group mb-3 pt-3">
+                <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+                <input type="text" [(ngModel)]="item.name" class="form-control" aria-label="Username" aria-describedby="basic-addon1" name="name" formControlName="name">
+                <input type="text" [(ngModel)]="item.brand" class="form-control" placeholder="Marca" aria-label="Username" aria-describedby="basic-addon1" formControlName="brand">
+            </div>
+            <label for="">Descripcion</label>
+            <div class="input-group mb-3">
+                <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
+                <textarea type="text" [(ngModel)]="item.longDescription" class="form-control" placeholder="Descripcion producto" aria-label="Descripcion" aria-describedby="basic-addon1" formControlName="longDescription"> </textarea>
+            </div>
+
+
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
+                <input type="text" [(ngModel)]="item.price" class="form-control" placeholder="Precio" aria-label="Username" aria-describedby="basic-addon1" formControlName="price">
+                <input type="text" [(ngModel)]="item.quantity" class="form-control" placeholder="Cantidad" aria-label="Amount" formControlName="quantity">
+            </div>
+
+
+            <div class="input-group mb-3">
+
+                <input type="text" class="form-control" placeholder="Proveedor" aria-label="Amount ">
+                <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>Proveedor</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+            </div>
+            <div class="input-group mb-3">
+
+                <input type="text" class="form-control" placeholder="Categoria" aria-label="Amount ">
+                <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>Categoria</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Ficha tecnica</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Hoja de seguridad</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Imagen Principal</label>
+                <input class="form-control" type="file" id="formFile">
+            </div>
+
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Imagenes carrucel</label>
+                <input class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+
+
+
+</sb-layout-dashboard>

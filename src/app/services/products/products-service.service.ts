@@ -36,8 +36,23 @@ export class ProductsServiceService {
 
   }
 
+  public getOneProducts(id:any):Observable<any>{
+    const URL = `${environment.DOMAIN_URL}/${ProductsServiceEntries.PRODUCTS_ENDPOINT_GET_ID}/`+ id
+    return <Observable<any>> this._genericService.genericGetCustomer(URL);
 
+  }
 
+  public updateProducts(id:any, formProducts:any):Observable<any>{
+    const URL = `${environment.DOMAIN_URL}/${ProductsServiceEntries.PRODUCTS_ENDPOINT_PUT_ID}`
+    return <Observable<any>> this._genericService.genericPutCustomer(URL + id, formProducts);
+
+  }
+
+  public deleteProduct(id:any):Observable<any>{
+    const URL = `${environment.DOMAIN_URL}/${ProductsServiceEntries.PRODUCTS_ENDPOINT_DELETE}/`+ id
+    return <Observable<any>> this._genericService.genericDeleteCustomer(URL);
+
+  }
 
 
 

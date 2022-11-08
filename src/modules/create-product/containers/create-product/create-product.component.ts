@@ -7,6 +7,7 @@ import { IProviderModel } from '@modules/create-provider/model/provider.model';
 import { validate } from 'json-schema';
 
 
+
 @Component({
     selector: 'app-create-product',
     templateUrl: './create-product.component.html',
@@ -61,10 +62,17 @@ formProductNew(){
           brand: new FormControl('', [Validators.required, Validators.minLength(10)]),
           quantity: new FormControl('', [Validators.required, Validators.minLength(5)]),
           price: new FormControl('', [Validators.required, Validators.minLength(10)]),
+          sku: new FormControl('', [Validators.required, Validators.minLength(10)]),
           idProvider: new FormControl('', [Validators.required]),
           category: new FormControl('', [Validators.required]),
-  
-  
+          coverImage: new FormControl('', [Validators.required]),
+          safetySheet: new FormControl('', [Validators.required]),
+          dataSheet: new FormControl('', [Validators.required]),
+          images: new FormControl('', [Validators.required]),
+
+
+
+
           // agregar review
   
           // nameProduct: new FormControl(''),
@@ -100,38 +108,39 @@ formProductNew(){
 
     onProducts(){
         
-        if (this.productForm.valid){
-          const fd = new FormData();
+      if(this.productForm.invalid){
+          Object.values(this.productForm.controls).forEach(control=>{
+            control.markAllAsTouched();
+          });
+               
+        const fd = new FormData();
     
-          fd.append('name', this.productForm.get('name')?.value);
-          fd.append('longDescription', this.productForm.get('longDescription')?.value);
-          fd.append('brand', this.productForm.get('brand')?.value);
-          fd.append('quantity', this.productForm.get('quantity')?.value);
-          fd.append('price', this.productForm.get('price')?.value);
-      
-          for (var i = 0; i < this.selectedImgArray.length; i++) { 
-            fd.append("images[]", this.selectedImgArray[i]);
-          }
-       
-          fd.append('dataSheet', this.selectedPdfData);
-          fd.append('idProvider', this.productForm.get('idProvider')?.value);
-          fd.append('safetySheet', this.selectedPdfSafe);
-          fd.append('category', this.productForm.get('category')?.value);
-          fd.append('coverImage', this.selectedImgCover);
-          
-              this._productsService.createNewProducts(fd).subscribe(res => {
-  
-                      console.log("Producto creado", res);
-                      
-  
-              })
-              this.onResetForm();
-        } else {
-          this.submitted = true;
-          console.log('Not Valid');
+        fd.append('name', this.productForm.get('name')?.value);
+        fd.append('longDescription', this.productForm.get('longDescription')?.value);
+        fd.append('brand', this.productForm.get('brand')?.value);
+        fd.append('quantity', this.productForm.get('quantity')?.value);
+        fd.append('price', this.productForm.get('price')?.value);
+        fd.append('sku', this.productForm.get('sku')?.value);
+    
+        for (var i = 0; i < this.selectedImgArray.length; i++) { 
+          fd.append("images[]", this.selectedImgArray[i]);
         }
+     
+        fd.append('dataSheet', this.selectedPdfData);
+        fd.append('idProvider', this.productForm.get('idProvider')?.value);
+        fd.append('safetySheet', this.selectedPdfSafe);
+        fd.append('category', this.productForm.get('category')?.value);
+        fd.append('coverImage', this.selectedImgCover);
+        
+            this._productsService.createNewProducts(fd).subscribe(res => {
 
+                    console.log("Producto creado", res);
+                    
 
+            })
+            
+            return;
+      }
 
         // this.http
         //   .post(`${environment.DOMAIN_URL}/${ProductsServiceEntries.PRODUCTS_ENDPOINT}`, fd)
@@ -145,7 +154,11 @@ formProductNew(){
         //   });
       }
 
-      get name() { return this.productForm.get('name');}
+      public get f():any{
+        return this.productForm.controls;
+      }
+
+      // get name() { return this.productForm.get('name');}
 
       formProductReview(){
 

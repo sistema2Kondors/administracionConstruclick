@@ -32,6 +32,7 @@ label {
     border: #EBECF0;
     box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
     height: 46px;
+    width: 96%;
 }
 
 .textDescription {
@@ -41,7 +42,7 @@ label {
     border: #EBECF0;
     box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
     height: 102px;
-    width: 100%;
+    width: 98%;
 }
 
 .inputFile {
@@ -81,6 +82,7 @@ label {
     box-shadow: inset -2.12px -2.12px 6px #ffffff;
     margin: 5px 0px 0px 0px;
     height: 46px;
+    width: 96%;
     color: #C9CCDA;
 }
 
@@ -101,7 +103,7 @@ label {
 }
 
 .especificaciones{
-    padding: 18px 0px 0px 2px;
+    padding: 18px 0px 44px 18px;
 }
 .btnEspecificaciones{
     background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
@@ -171,4 +173,12 @@ label {
 
 .container-error-message{
     padding: 3px;
+}
+
+.invalid-feedback{
+    width: 100%;
+    margin-top: none;
+    font-size: 14px;
+    color: #ff0000;
+    padding-left: 13px;
 }

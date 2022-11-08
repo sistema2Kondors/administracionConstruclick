@@ -56,6 +56,24 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: CatalogoContainers.StockPreciosComponent,
     },
+    {
+        path: 'detalles-producto/:id',
+        data: {
+            title: 'detalles-producto',
+            breadcrumbs: [
+                {
+                    text: 'detalles-producto',
+                    link: '/detalles-producto',
+                },
+                {
+                    text: 'detalles-producto',
+                    active: true,
+                },
+            ],
+        } as SBRouteData,
+        canActivate: [],
+        component: CatalogoContainers.UpdateProductComponent,
+    },
 ];
 
 @NgModule({

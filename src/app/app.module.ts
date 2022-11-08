@@ -6,10 +6,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ArchwizardModule } from 'angular-archwizard';
 import { NgWizardConfig, NgWizardModule, THEME } from 'ng-wizard';
 
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 const ngWizardConfig: NgWizardConfig = {
     theme: THEME.default,
@@ -24,7 +23,7 @@ const ngWizardConfig: NgWizardConfig = {
         NgWizardModule.forRoot(ngWizardConfig),
         ArchwizardModule,
         ReactiveFormsModule,
-        NgbModule
+        NgbModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

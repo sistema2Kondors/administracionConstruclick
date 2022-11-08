@@ -18,94 +18,106 @@
                         <label>Nombre Producto</label>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name">
-                        <!-- <div class="alert-danger" *ngIf="name.invalid && (name.touched || submitted)">
-                            <div class="container-error-message" *ngIf="name.errors.required">
-                                El nombre es requerido.
-                            </div>
-                            <div class="container-error-message" *ngIf="name.errors.minlength">
-                                El nombre debe tener mínimo 5 caracteres.
-                            </div>
-                            <div class="container-error-message" *ngIf="name.errors.maxlength">
-                                Has pasado el numero de maximo caracteres permitidos.
-                            </div>
-                        </div> -->
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
-                        <!-- <div class="alert-danger" *ngIf="brand.invalid && (brand.dirty || brand.touched)">
-                            <div class="container-error-message" *ngIf="brand.errors.required">
-                                Marca es requerido
-                            </div>
-                            <div class="container-error-message" *ngIf="brand.errors.minLength">
-                                Mínimo de carácteres es de 10
-                            </div>
-                        </div> -->
-                    </div>
-                    <div class="col-md-12 col-12">
-                        <textarea class="textDescription" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="longDescription"></textarea>
-                        <!-- <div class="alert-danger" *ngIf="longDescription.invalid && (longDescription.dirty || longDescription.touched)">
-                            <div class="container-error-message" *ngIf="longDescription.errors.required">
-                                Descripción es requerido
-                            </div>
-                            <div class="container-error-message" *ngIf="longDescription.errors.minLength">
-                                Maximo de carácteres es de 100
-                            </div>
-                        </div> -->
-                    <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
-                            <!-- <div class="alert-danger" *ngIf="quantity.invalid && (quantity.dirty || quantity.touched)">
-                                <div class="container-error-message" *ngIf="quantity.errors.required">
-                                    Cantidad es requerido
-                                </div>
-                                <div class="container-error-message" *ngIf="name.errors.minLength">
-                                    Mínimo de carácteres es de 5
-                                </div>
-                            </div> -->
+                        <input type="text" class="form-control inputProduct" [class.is-invalid]="f.name.errors && f.name.touched" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Nombre
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
-                        <!-- <div class="alert-danger" *ngIf="price.invalid && (price.dirty || price.touched)">
-                            <div class="container-error-message" *ngIf="price.errors.required">
-                                Precio es requerido
-                            </div>
-                            <div class="container-error-message" *ngIf="price.errors.minLength">
-                                Mínimo de carácteres es de 10
-                            </div>
-                        </div> -->
+                        <input type="text" class="form-control inputProduct" [class.is-invalid]="f.brand.errors && f.brand.touched" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Marca
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <textarea class="textDescription" [class.is-invalid]="f.longDescription.errors && f.longDescription.touched" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="longDescription"></textarea>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Descripción
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.quantity.errors && f.quantity.touched" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Cantidad
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.price.errors && f.price.touched" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Precio
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label for="">Sku</label>
+                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.sku.errors && f.sku.touched" aria-label="Sizing example input" placeholder="SKU" aria-describedby="inputGroup-sizing-default" formControlName="sku">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar SKU
+                        </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Proveedor</label>
-                        <select formControlName="idProvider" name="category" class="form-select" aria-label="Default select example">
+                        <select formControlName="idProvider" name="category" class="form-select" [class.is-invalid]="f.idProvider.errors && f.idProvider.touched" aria-label="Default select example">
                             <option value="" selected="true" disabled="disabled">Seleccione Proveedor</option>
                             <option  *ngFor="let item of selectedProvider" [value]="item._id">{{item.name}}</option>
                         </select>
-
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione el proveedor
+                        </div>
+ 
                         <!-- <input type="text" class="form-control inputProduct" formControlName="idProvider"> -->
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Categoría del Producto</label>
-                        <select formControlName="category" name="category" class="form-select" aria-label="Default select example">
+                        <!-- <select formControlName="category" name="category" class="form-select" [class.is-invalid]="f.category.errors && f.category.touched" aria-label="Default select example">
                             <option value="" selected="true" disabled="disabled">Seleccione categoria</option>
                             <option  *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</option>
-                        </select>
-                    </div>
+                        </select> -->
+                        <!-- <input list="categoria" name="categoria" type="text" placeholder="Elige una categoría">
+                        <datalist id="categoria" formControlName="category" name="category" [class.is-invalid]="f.category.errors && f.category.touched" aria-label="Default select example">
+                            <option  *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</option>
+                        </datalist>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione la categoría
+                        </div> -->
+                        <!-- <div class="ng-autocomplete">
+                            <ng-autocomplete 
+                              [data]=""
+                              [searchKeyword]=""
+                              placeholder="Select country"
+                              [itemTemplate]="itemTemplate"
+                              [notFoundTemplate]="notFoundTemplate">                                 
+                            </ng-autocomplete>
+                            
+                            <ng-template #itemTemplate let-item>
+                            <a [innerHTML]="item.name"></a>
+                            </ng-template>
+                            
+                            <ng-template #notFoundTemplate let-notFound>
+                            <div [innerHTML]="notFound"></div>
+                            </ng-template>
+                        </div> -->
+                    </div> 
 
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar Ficha Técnica</label>
-                        <input type="file" id="input" class="form-control inputFile" (change)="PdfSelectedData($event)">
+                        <input type="file" id="input" class="form-control inputFile" (change)="PdfSelectedData($event)" formControlName="dataSheet" [class.is-invalid]="f.dataSheet.errors && f.dataSheet.touched">
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="dataSheet"> -->
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione Ficha técnica
+                        </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar hoja de seguridad</label>
-                        <input type="file" class="form-control inputFile" (change)="PdfSelectedSafe($event)" />
+                        <input type="file" class="form-control inputFile" (change)="PdfSelectedSafe($event)" formControlName="safetySheet" [class.is-invalid]="f.safetySheet.errors && f.safetySheet.touched"/>
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione Hoja de Seguridad
+                        </div>
                     </div>
 
 
@@ -120,25 +132,23 @@
                     </div> -->
                     <div class="col-md-6 col-12">
                         <label for="">Agregar imagen principal</label>
-                        <input type="file" class="form-control inputFile" (change)="onImgCover($event)" />
+                        <input type="file" class="form-control inputFile" (change)="onImgCover($event)" formControlName="coverImage" [class.is-invalid]="f.coverImage.errors && f.coverImage.touched"/>
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="mainImage"> -->
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione la imágen principal
+                        </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar Carrusel de imágenes</label>
-                        <input type="file" class="form-control inputFile" id="file" multiple (change)="selectFilesGallery($event)" />
+                        <input type="file" class="form-control inputFile" id="file" multiple (change)="selectFilesGallery($event)" formControlName="images" [class.is-invalid]="f.images.errors && f.images.touched" />
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione las imágenes
+                        </div>
                         <div>
                             <!-- <img *ngFor='let preview of previews' [src]="preview" class="preview"> -->
                         </div>
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="carouselImages"> -->
-                    </div>
-                    <div class="col-12">
-                        <div class="especificaciones">
-                            <button type="button" class="btn btnEspecificaciones" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
-                                Agregar Especificaciones
-                            </button>
-                        </div>
-                        
                     </div>
                     <div class="col-md-12 col-12">
                         <div class="contentBtnNext">
@@ -147,9 +157,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
     </form>
-
+    <div class="col-12">
+        <div class="especificaciones">
+            <button type="button" class="btn btnEspecificaciones" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
+                Agregar Especificaciones
+            </button>
+        </div>
+    </div>
     <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
