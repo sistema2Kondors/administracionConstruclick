@@ -59,6 +59,8 @@ export class UpdateProductComponent implements OnInit {
       fd.append('longDescription', this.productForm.get('longDescription')?.value);
       fd.append('price', this.productForm.get('price')?.value);
       fd.append('quantity', this.productForm.get('quantity')?.value);
+      fd.append('category', this.productForm.get('category')?.value);
+      fd.append('idProvider', this.productForm.get('idProvider')?.value);
 
       console.log("Update params",params.id);
    

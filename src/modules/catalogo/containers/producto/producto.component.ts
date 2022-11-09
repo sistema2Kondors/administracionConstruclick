@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class ProductoComponent implements OnInit {
     productos: any[] = [];
+    
 
     constructor(private _productsServiceService: ProductsServiceService) {}
     ngOnInit(): void {
@@ -19,11 +20,24 @@ export class ProductoComponent implements OnInit {
 
     getAllProducts() {
         this._productsServiceService.getAllProducts().subscribe((respuesta: any) => {
+
+           const companyUserIdLogin = "63629c3e1b26e4b02200e6e3"
+          //  const companyUserIdLogin = "63629bcd1b26e4b02200e6d9"
             const Array = [];
             const actualizar = respuesta.data;
-            Array.push(actualizar)
+            Array.push(actualizar);
+
+              // for( let i of respuesta.data) {
+             
+              //   if (i.companyUserId == companyUserIdLogin) {
+              //     const actualizar = i;
+              //     Array.push(actualizar);
+              //   }
+              // }
+
             this.productos = Array[0];
-       
+            // this.productos = Array;
+
         });
     }
 
