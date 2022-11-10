@@ -4,6 +4,9 @@ import { CategoriesServiceService } from '@app/services/category/categories-serv
 import { ProductsServiceService } from '@app/services/products/products-service.service';
 import { ProviderServiceService } from '@app/services/provider/provider-service.service';
 import { IProviderModel } from '@modules/create-provider/model/provider.model';
+import { validate } from 'json-schema';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -18,7 +21,10 @@ export class CreateProductComponent implements OnInit {
     
     formModal:any;
 
-    @Input() name:string;
+    public submitted: boolean = false;
+
+    selectedCategoryId: number;
+    // @Input() name:string;
     selectedProducts: any[] = [];
     selectedProvider: any[] = [];
     dataCategoriesFather: any[] = [];
@@ -47,42 +53,69 @@ export class CreateProductComponent implements OnInit {
 
 
 formProductNew(){        
-    this.productForm = new FormGroup({
+      this.productForm = new FormGroup({
+  
+        name: new FormControl('', [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.maxLength(20),
+        ]),
+          longDescription: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+          brand: new FormControl('', [Validators.required, Validators.minLength(10)]),
+          quantity: new FormControl('', [Validators.required, Validators.minLength(5)]),
+          price: new FormControl('', [Validators.required, Validators.minLength(10)]),
+          sku: new FormControl('', [Validators.required, Validators.minLength(10)]),
+          idProvider: new FormControl('', [Validators.required]),
+          category: new FormControl('', [Validators.required]),
+          coverImage: new FormControl('', [Validators.required]),
+          safetySheet: new FormControl('', [Validators.required]),
+          dataSheet: new FormControl('', [Validators.required]),
+          images: new FormControl('', [Validators.required]),
 
-        name: new FormControl('', [Validators.required]),
-        longDescription: new FormControl('', [Validators.required]),
-        brand: new FormControl('', [Validators.required]),
-        quantity: new FormControl('', [Validators.required]),
-        price: new FormControl('', [Validators.required]),
-        idProvider: new FormControl('', [Validators.required]),
-        category: new FormControl('', [Validators.required]),
 
-            // agregar review
-   
 
-        // nameProduct: new FormControl(''),
-        // brand: new FormControl(''),
-        // productDescription: new FormControl(''),
-        // quantity: new FormControl(''),
-        // price: new FormControl(''),
-        // mainImage: new FormControl(''),
-        // safetySheet: new FormControl(''),
-        // supplierIdentification: new FormControl(''),
-        // idSupplier: new FormControl(''),
-        // dataSheet: new FormControl(''),
-        // carouselImages: new FormControl(''),
-    });
+
+          // agregar review
+  
+          // nameProduct: new FormControl(''),
+          // brand: new FormControl(''),
+          // productDescription: new FormControl(''),
+          // quantity: new FormControl(''),
+          // price: new FormControl(''),
+          // mainImage: new FormControl(''),
+          // safetySheet: new FormControl(''),
+          // supplierIdentification: new FormControl(''),
+          // idSupplier: new FormControl(''),
+          // dataSheet: new FormControl(''),
+          // carouselImages: new FormControl(''),
+      });
     }
+
+
+
+
 
     PdfSelectedData(event:any){
         this.selectedPdfData = event.target.files[0];
+        
+        /// se hace con un ng ig y ng.template
+        // como el eejercicio de si es medellin del admin
+
       }
       PdfSelectedSafe(event:any){
         this.selectedPdfSafe = event.target.files[0];
       }
 
-    onProducts(){
 
+    onResetForm(){
+      this.productForm.reset();
+    }
+    
+
+    onProducts(){
+        
+      if(this.productForm.valid){
+    
         const fd = new FormData();
     
         fd.append('name', this.productForm.get('name')?.value);
@@ -90,6 +123,7 @@ formProductNew(){
         fd.append('brand', this.productForm.get('brand')?.value);
         fd.append('quantity', this.productForm.get('quantity')?.value);
         fd.append('price', this.productForm.get('price')?.value);
+        fd.append('sku', this.productForm.get('sku')?.value);
     
         for (var i = 0; i < this.selectedImgArray.length; i++) { 
           fd.append("images[]", this.selectedImgArray[i]);
@@ -100,26 +134,36 @@ formProductNew(){
         fd.append('safetySheet', this.selectedPdfSafe);
         fd.append('category', this.productForm.get('category')?.value);
         fd.append('coverImage', this.selectedImgCover);
-        
+
             this._productsService.createNewProducts(fd).subscribe(res => {
-
-                    console.log("Producto creado", res);
-                    
-
-            })
-
-        // this.http
-        //   .post(`${environment.DOMAIN_URL}/${ProductsServiceEntries.PRODUCTS_ENDPOINT}`, fd)
-        //   .subscribe({
-        //     next: (response) => {
-        //       console.log(response);
-        //     },
-        //     error: (error) => {
-        //       console.log(error);
-        //     }
-        //   });
+              Swal.fire({
+                icon: 'success',
+                title: 'Exitoso...',
+                text: 'Su producto ha sido guardado',
+                
+              })
+            });
+            
+      }else{
+        Object.values(this.productForm.controls).forEach(control=>{
+          control.markAllAsTouched();
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Verifique que todos los campos tienen informacion!',
+          
+          })
+        });
+             
       }
 
+      }
+
+      public get f():any{
+        return this.productForm.controls;
+      }
+
+      // get name() { return this.productForm.get('name');}
 
       formProductReview(){
 
@@ -153,9 +197,7 @@ formProductNew(){
 
       onImgCover(event:any){
         this.selectedImgCover = event.target.files[0];
-    
-        // console.log("COver",this.selectedImgCover);
-        
+     
       }
 
       selectFilesGallery(event: any): void {
@@ -164,7 +206,7 @@ formProductNew(){
           console.log(event.target.files[i]);
           this.selectedImgArray.push(event.target.files[i]);
         }
-    
+
         this.selectedFiles = event.target.files;
         this.previews = [];
         if (this.selectedFiles && this.selectedFiles[0]) {
@@ -225,6 +267,7 @@ formProductNew(){
                 
             });
          }
+
 
 
 

@@ -18,78 +18,137 @@
                         <label>Nombre Producto</label>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name">
+                        <input type="text" class="form-control inputProduct" [class.is-invalid]="f.name.errors && f.name.touched" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Nombre
+                        </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
+                        <input type="text" class="form-control inputProduct" [class.is-invalid]="f.brand.errors && f.brand.touched" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Marca
+                        </div>
                     </div>
                     <div class="col-md-12 col-12">
-                        <textarea class="textDescription" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="longDescription"></textarea>
+                        <textarea class="textDescription" [class.is-invalid]="f.longDescription.errors && f.longDescription.touched" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="longDescription"></textarea>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Descripción
+                        </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
+                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.quantity.errors && f.quantity.touched" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Cantidad
+                        </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
+                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.price.errors && f.price.touched" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Precio
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <label for="">Sku</label>
+                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.sku.errors && f.sku.touched" aria-label="Sizing example input" placeholder="SKU" aria-describedby="inputGroup-sizing-default" formControlName="sku">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar SKU
+                        </div>
                     </div>
 
-                    <div class="col-md-6 col-12">
+                    <div class="col-md-4 col-12">
                         <label for="">Proveedor</label>
-                        <select formControlName="idProvider" name="category" class="form-select" aria-label="Default select example">
+                        <select formControlName="idProvider" name="category" class="form-select" [class.is-invalid]="f.idProvider.errors && f.idProvider.touched" aria-label="Default select example">
                             <option value="" selected="true" disabled="disabled">Seleccione Proveedor</option>
                             <option  *ngFor="let item of selectedProvider" [value]="item._id">{{item.name}}</option>
                         </select>
-
-                        <!-- <input type="text" class="form-control inputProduct" formControlName="idProvider"> -->
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione el proveedor
+                        </div>
                     </div>
 
-                    <div class="col-md-6 col-12">
-                        <label for="">Categoría del Producto</label>
-                        <select formControlName="category" name="category" class="form-select" aria-label="Default select example">
+                    <div class="col-md-5 col-12">
+                        <!-- <label for="">Categoría del Producto</label>
+                        <select aria-autocomplete="inline" formControlName="category" name="category" class="form-select" [class.is-invalid]="f.category.errors && f.category.touched" aria-label="Default select example">
                             <option value="" selected="true" disabled="disabled">Seleccione categoria</option>
                             <option  *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</option>
-                        </select>
-                    </div>
+                        </select> -->
+                        <label for="">Categoría del Producto</label>
+                        <ng-select formControlName="category" name="category" class="form-control selectInputProduct" [class.is-invalid]="f.category.errors && f.category.touched" aria-label="Default select example">
+                            <ng-option value="" selected="true" disabled="disabled">Seleccione categoria</ng-option>
+                            <ng-option *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</ng-option>
+                        </ng-select>
 
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione categoria
+                        </div>
+
+                    </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar Ficha Técnica</label>
-                        <input type="file" id="input" class="form-control inputFile" (change)="PdfSelectedData($event)">
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="dataSheet"> -->
+                        <input type="file" id="input" class="form-control inputFile" (change)="PdfSelectedData($event)" formControlName="dataSheet" [class.is-invalid]="f.dataSheet.errors && f.dataSheet.touched">
+                        <div *ngIf="selectedPdfData ; else noFile">
+                            <h4 class="archiveFIle"> {{selectedPdfData.name}}</h4>
+                        </div>
+                        <ng-template #noFile>
+                            <!-- <h4 class="archiveFIle">Archivo</h4> -->
+                        </ng-template>
+
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione Ficha técnica
+                        </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar hoja de seguridad</label>
-                        <input type="file" class="form-control inputFile" (change)="PdfSelectedSafe($event)" />
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
+                        <input type="file" class="form-control inputFile" (change)="PdfSelectedSafe($event)" formControlName="safetySheet" [class.is-invalid]="f.safetySheet.errors && f.safetySheet.touched" />
+
+                        <div *ngIf="selectedPdfSafe ; else noFileSegurity">
+                            <h4 class="archiveFIle"> {{selectedPdfSafe.name}}</h4>
+                        </div>
+                        <ng-template #noFileSegurity>
+                            <!-- <h4 class="archiveFIle">Archivo</h4> -->
+                        </ng-template>
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione Hoja de Seguridad
+                        </div>
                     </div>
 
-
-                    <!-- <div class="col-md-12 col-12">
-                        <label for="">Proveedor</label>
-                    </div> -->
-                    <!-- <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Nombre" aria-describedby="inputGroup-sizing-default" formControlName="supplierIdentification">
-                    </div> -->
-                    <!-- <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="ID" aria-describedby="inputGroup-sizing-default" formControlName="idSupplier">
-                    </div> -->
                     <div class="col-md-6 col-12">
                         <label for="">Agregar imagen principal</label>
-                        <input type="file" class="form-control inputFile" (change)="onImgCover($event)" />
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="mainImage"> -->
+                        <input type="file" class="form-control inputFile" (change)="onImgCover($event)" formControlName="coverImage" [class.is-invalid]="f.coverImage.errors && f.coverImage.touched" />
+
+                        <div *ngIf="selectedImgCover ; else noImg">
+                            <h4 class="archiveFIle"> {{selectedImgCover.name}}</h4>
+                        </div>
+                        <ng-template #noImg>
+                            <!-- <h4 class="archiveFIle">Imagen</h4> -->
+                        </ng-template>
+
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione la imágen principal
+                        </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar Carrusel de imágenes</label>
-                        <input type="file" class="form-control inputFile" id="file" multiple (change)="selectFilesGallery($event)" />
-                        <div>
-                            <!-- <img *ngFor='let preview of previews' [src]="preview" class="preview"> -->
-                        </div>
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="carouselImages"> -->
-                    </div>
+                        <input type="file" class="form-control inputFile" id="file" multiple (change)="selectFilesGallery($event)" formControlName="images" [class.is-invalid]="f.images.errors && f.images.touched" />
 
+
+                        <div *ngFor="let item of selectedImgArray">
+                            <div *ngIf="item; else noImgMultiple">
+                                <h4 class="archiveFIle"> {{item.name}}</h4>
+                            </div>
+                        </div>
+                        <ng-template #noImgMultiple>
+                            <!-- <h4 class="archiveFIle">Imagen 444</h4> -->
+                        </ng-template>
+
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Seleccione las imágenes
+                        </div>
+
+                    </div>
                     <div class="col-md-12 col-12">
                         <div class="contentBtnNext">
                             <button type="submit" class="btn btnContinue"> Guardar</button>
@@ -97,42 +156,39 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </form>
 
-    <div class="row">
-        <div class="col-12">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
+    <div class="col-12">
+        <div class="especificaciones">
+            <button type="button" class="btn btnEspecificaciones" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
                 Agregar Especificaciones
-               </button>
+            </button>
         </div>
     </div>
-
-
     <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered ">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Agregar Especificaciones Productos</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">AGREGAR ESPECIFICACIONES DEL PRODUCTO</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form [formGroup]="reviewProductForm" (ngSubmit)="registerReview()">
 
                         <div class="row">
-                            <select formControlName="id" name="category">
+                            <select formControlName="id" name="category" class="selectProduct">
                                 <option value="" selected="true" disabled="disabled">Seleccione un producto </option>
                                 <option  *ngFor="let item of selectedProducts" [value]="item._id"> {{item.name}}</option>
                             </select>
-                            <div class="col-12">
+                            <div class="col-md-12 col-12">
                                 <label for="">Titulo</label>
-                                <input type="text" formControlName="title">
+                                <input type="text" class="inputEspecificaciones" formControlName="title">
                             </div>
 
                             <div class="col-12">
                                 <label for="">Descripcion</label>
-                                <input type="text" formControlName="detailReview">
+                                <input type="text" class="textDescription" formControlName="detailReview">
                             </div>
                             <!-- <div class="col-12">
                                 <label for="">Email</label>
@@ -141,14 +197,12 @@
                             </div> -->
                         </div>
                         <br>
-
-                        <button type="submit" class="btn btn-success"> Agregar</button>
-
                     </form>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btnAgregar"> Agregar</button>
+                    <button type="button" class="btn btnCerrar" data-bs-dismiss="modal">Cerrar</button>
                     <!-- <button type="button" class="btn btn-primary">Understood</button> -->
                 </div>
             </div>
