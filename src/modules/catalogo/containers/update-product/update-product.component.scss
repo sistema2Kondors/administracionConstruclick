@@ -1,0 +1,31 @@
+.containerImgCarrucel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imgAppCover {
+    width: 200px;
+    height: 200px;
+    margin: 10px 5px;
+    @media(max-width: 1600px) {
+        width: 155px;
+    }
+}
+
+.inputProduct {
+    margin: 6px;
+    border-radius: 12px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    height: 46px;
+    width: 94%;
+}
+
+.imgAppCoverPdf {
+    cursor: pointer;
+    text-align: center;
+    width: 100px;
+    height: auto;
+}

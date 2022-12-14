@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckLoginGuard } from './guards/check-login.guard';
 
 const routes: Routes = [
-    {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: '/dashboard',
-    },
+
     {
         path: 'charts',
         loadChildren: () =>
@@ -16,8 +13,8 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () =>
             import('modules/dashboard/dashboard-routing.module').then(
-                m => m.DashboardRoutingModule
-            ),
+                m => m.DashboardRoutingModule ),
+                canActivate:[CheckLoginGuard],
     },
     {
         path: 'auth',
@@ -117,12 +114,21 @@ const routes: Routes = [
                 m => m.CreateProductRoutingModule
             ),
     },
+
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'auth/login',
+    },
+
     {
         path: '**',
         pathMatch: 'full',
         loadChildren: () =>
             import('modules/error/error-routing.module').then(m => m.ErrorRoutingModule),
     },
+
+  
 ];
 
 @NgModule({

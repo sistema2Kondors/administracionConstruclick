@@ -1,9 +1,5 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head
-        title=""
-        class="titleNotifications"
-        [hideBreadcrumbs]="false"
-    ></sb-dashboard-head>
+    <sb-dashboard-head title="" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
     <div class="row">
         <div class="col-md-6 col-12">
             <div class="contentBtnMensajes">
@@ -18,30 +14,50 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 textCenter">
-            <div>
-                <h1>Creación Asistida del Producto</h1>
-                <p>
-                    Te permite crear tu catálogo con información ya existente de la base de datos.
-                </p>
-                <div class="textAsistida">
-                    <p>1. Descargar el archivo en CSV y completa los campos en EAN</p>
+
+    <form [formGroup]="formLoading" class="textAlignCenter">
+        <div class="row">
+            <div class="col-md-12 textCenter">
+                <div>
+                    <h1>Creación Asistida del Producto</h1>
                     <p>
-                        2. Sube el archivo en el mismo formato CVS para identificar los productos y
-                        asociarlos a la base de datos.
+                        Te permite crear tu catálogo con información ya existente de la base de datos.
                     </p>
-                    <p>3. Selecciones los productos que desea crear con la base de datos.</p>
-                </div>
-                <div class="contentButton">
-                    <button type="button" class="btn btnDescargar" routerLink="">
+                    <div class="textAsistida">
+                        <p>1. Descargar el archivo en CSV y completa los campos en EAN</p>
+                        <p>
+                            2. Sube el archivo en el mismo formato CVS para identificar los productos y asociarlos a la base de datos.
+                        </p>
+                        <p>3. Selecciones los productos que desea crear con la base de datos.</p>
+                    </div>
+                    <div class="contentButton">
+                        <button type="button" class="btn btnDescargar" routerLink="">
                         Descargar archivo CVS
                     </button>
-                    <button type="button" class="btn btnCargar" routerLink="">
-                        Subir Archivo
-                    </button>
+                        <!-- <button type="button" class="btn btnCargar" routerLink=""> -->
+
+                        <input type="file" accept=".xlsx" class="form-control inputFile btn btnCargar" (change)="excelSelectedData($event)" formControlName="loadigExcel" />
+                        <div *ngIf="f.loadigExcel.valid">
+                            <div *ngIf="selectedExcel; else noFileSegurity">
+                                <h4 class="archiveFIle">{{ selectedExcel.name }}</h4>
+                            </div>
+                            <ng-template #noFileSegurity>
+                                <!-- <h4 class="archiveFIle">Archivo</h4> -->
+                            </ng-template>
+                        </div>
+                        <div class="alert-danger" *ngIf="f.loadigExcel.invalid && (f.loadigExcel.touched )">
+                            <div class="container-error-message textCenterItems" *ngIf="f.loadigExcel.errors.required">
+                                El archivo es requerido.
+                            </div>
+                        </div>
+
+                        <div class="contLoading">
+                            <button class="btn btnCargar" (click)="bulkLoad()">Subir</button>
+                        </div>
+                        <!-- </button> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </sb-layout-dashboard>

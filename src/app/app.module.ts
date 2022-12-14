@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ArchwizardModule } from 'angular-archwizard';
@@ -9,6 +9,8 @@ import { NgWizardConfig, NgWizardModule, THEME } from 'ng-wizard';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { AuthService } from '@modules/auth/services';
+
 
 
 const ngWizardConfig: NgWizardConfig = {
@@ -24,10 +26,15 @@ const ngWizardConfig: NgWizardConfig = {
         NgWizardModule.forRoot(ngWizardConfig),
         ArchwizardModule,
         ReactiveFormsModule,
+        FormsModule,
         NgbModule,
         NgSelectModule
     ],
-    providers: [],
+    providers: [
+        AuthService,
+        
+
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

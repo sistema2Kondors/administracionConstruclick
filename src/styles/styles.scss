@@ -51,6 +51,16 @@ body {
     --bs-gutter-x: opx;
 }
 
+//Generales
+.textCenterItems {
+    text-align: center;
+}
+
+.displayFlextCenter {
+    display: flex;
+    justify-content: center;
+}
+
 .ng-dropdown-panel .ng-dropdown-panel-items {
     background: #ecedf1;
     max-height: 300px;
@@ -71,4 +81,202 @@ body {
 .ng-option span {
     padding-left: 10px;
     display: flex;
+}
+
+// estilos formularios productos crear productos
+.contentBtnMensajes {
+    display: flex;
+    justify-content: flex-start;
+    padding: 23px;
+}
+
+.titleProduct {
+    color: #757E95;
+}
+
+.contentProduct {
+    padding-top: 26px;
+}
+
+label {
+    color: #4C556A;
+    padding: 16px 0px 0px 11px;
+}
+
+.btnContinue {
+    color: #FC6721;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    border-radius: 30px;
+    width: 113px;
+}
+
+.textDescription {
+    margin: 6px;
+    border-radius: 12px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    height: 102px;
+    width: 98%;
+    padding: 12px;
+}
+
+.inputFile {
+    position: relative;
+    margin: 6px;
+    height: 47px;
+    padding: 5px 0px 0px 0px;
+    width: 97%;
+    border-radius: 11px;
+}
+
+.inputFile::before {
+    content: "Seleccione archivo";
+    position: absolute;
+    padding: 5px;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    border-radius: 11px;
+    cursor: pointer;
+    height: 100%;
+    background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    top: 1px;
+    // margin-top: 40px;
+}
+
+@media(max-width: 768px) {
+    .inputFile::before {
+        width: 48%;
+    }
+}
+
+.form-select {
+    background-color: #EBECF0;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    margin: 5px 0px 0px 10px;
+    height: 46px;
+    width: 96%;
+    color: #000000;
+}
+
+.contentBtnNext {
+    display: flex;
+    justify-content: flex-end;
+    padding: 38px;
+}
+
+@media(max-width: 768px) {
+    .contentBtnNext {
+        padding: 38px 0px 38px 0px;
+    }
+}
+
+.modal-content {
+    background: transparent linear-gradient(278deg, #E6E7ED 0%, #F7F8FA 100%) 0% 0% no-repeat padding-box;
+}
+
+.especificaciones {
+    padding: 18px 0px 44px 18px;
+}
+
+.btnEspecificaciones {
+    background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
+    color: #FFFFFF;
+    border: none;
+    width: 30%;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    height: 46px;
+    border-radius: 11px;
+}
+
+@media(max-width: 768px) {
+    .btnEspecificaciones {
+        width: 45%;
+    }
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 17px;
+    color: #757E95;
+    padding-left: 7px;
+}
+
+.selectProduct {
+    border: #EBECF0;
+    height: 39px;
+    border-radius: 11px;
+    font-size: 12px;
+    color: black;
+    background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    text-align: center;
+}
+
+.inputEspecificaciones {
+    margin: 6px;
+    border-radius: 12px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    height: 46px;
+    width: 98%;
+    padding: 0px 12px;
+}
+
+.btnAgregar {
+    background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
+    border: none;
+    color: #FC6721;
+    border-radius: 15px;
+    width: 26%;
+}
+
+.btnCerrar {
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #ffffff;
+    color: #FC6721;
+    border-radius: 15px;
+    width: 26%;
+}
+
+.alert-danger {
+    color: red;
+    margin-bottom: 5px;
+}
+
+.container-error-message {
+    padding: 5px 15px;
+}
+
+.invalid-feedback {
+    width: 100%;
+    margin-top: none;
+    font-size: 14px;
+    color: #ff0000;
+    padding-left: 13px;
+}
+
+.selectInputProduct {
+    margin: 6px;
+    border-radius: 12px;
+    background: #EBECF0 0% 0% no-repeat padding-box;
+    border: #EBECF0;
+    box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
+    height: 46px;
+    width: 96%;
+    padding-top: 10px;
+}
+
+.archiveFIle {
+    padding: 0px 0px 0px 11px;
+    color: #09b010;
 }
