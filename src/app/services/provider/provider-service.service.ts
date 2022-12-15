@@ -17,7 +17,7 @@ export class ProviderServiceService {
     return <Observable<IProviderModel>> this._genericService.genericPostCustomer(URL, null);
   }
 
-
+  
 
 
 }

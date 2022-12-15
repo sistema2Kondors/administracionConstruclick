@@ -118,6 +118,20 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'crear-provider',
+        loadChildren: () =>
+            import('modules/create-provider/create-provider-routing.module').then(
+                m => m.CreateProviderRoutingModule
+            ),
+    },
+    {
+        path: '',
+        loadChildren: () =>
+            import('modules/auth/auth-routing.module').then(
+                m => m.AuthRoutingModule
+            ),
+    },
+    {
         path: '**',
         pathMatch: 'full',
         loadChildren: () =>

@@ -1,0 +1,83 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <div class="contentBtnMensajes">
+                <!-- <button type="button" class="btn btnContinue" routerLink="/tienda"> < VOLVER</button> -->
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="providerForm" (ngSubmit)="onProvider()">
+        <div class="container-fluid">
+            <div class="contentProduct">
+                <div class="row">
+                    <!-- <div class="col-md-12 col-12">
+                        <h1 class="titleProduct">Completa la información del producto</h1>
+                    </div> -->
+                    <div class="col-md-12 col-12">
+                        <label>Nombre</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.name.errors && f.name.touched" placeholder="Nombre" aria-describedby="inputGroup-sizing-default" formControlName="name">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Nombre
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <label>docNumber</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.docNumber.errors && f.docNumber.touched" placeholder="docNumber" aria-describedby="inputGroup-sizing-default" formControlName="docNumber">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar docNumber
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <label>docFile</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.docFile.errors && f.docFile.touched" placeholder="docFile" aria-describedby="inputGroup-sizing-default" formControlName="docFile">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar docFile
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <label>docType</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.docType.errors && f.docType.touched" placeholder="docType" aria-describedby="inputGroup-sizing-default" formControlName="docType">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar docType
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <label>address</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.address.errors && f.address.touched" placeholder="Address" aria-describedby="inputGroup-sizing-default" formControlName="address">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Address
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <label>contactNumber</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.contactNumber.errors && f.contactNumber.touched" placeholder="contactNumber" aria-describedby="inputGroup-sizing-default" formControlName="contactNumber">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar contactNumber
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class="contentBtnNext">
+                            <button type="submit" class="btn btnContinue">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </form>
+
+
+
+</sb-layout-dashboard>
