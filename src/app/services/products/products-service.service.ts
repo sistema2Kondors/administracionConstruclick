@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GenericService } from '@app/generic-services/generic-service';
 import { environment } from 'environments/environment';
@@ -54,6 +53,12 @@ export class ProductsServiceService {
 
   }
 
+      ///CARGA MASIVA
+  public SaveBulkProducts(id:any):Observable<any>{
+    const URL = `${environment.DOMAIN_URL}/${ProductsServiceEntries.PRODUCTS_BULK_POST}`
+    return <Observable<any>> this._genericService.genericPostCustomer(URL, id);
+
+  }
 
 
 }

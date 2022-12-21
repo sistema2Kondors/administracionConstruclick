@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppCommonModule } from '@common/app-common.module';
 import { NavigationModule } from '@modules/navigation/navigation.module';
+import { NgSelectModule } from '@ng-select/ng-select';
+
 
 import * as CatalogoContainers from './containers';
 import { CatalogoComponent } from './containers/catalogo/catalogo.component';
@@ -18,6 +20,7 @@ import { CatalogoComponent } from './containers/catalogo/catalogo.component';
         FormsModule,
         AppCommonModule,
         NavigationModule,
+        NgSelectModule
     ],
     providers: [],
     declarations: [...CatalogoContainers.containers, CatalogoComponent],

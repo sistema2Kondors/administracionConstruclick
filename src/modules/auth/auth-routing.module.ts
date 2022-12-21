@@ -14,11 +14,7 @@ import * as authGuards from './guards';
 
 /* Routes */
 export const ROUTES: Routes = [
-    {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'login',
-    },
+
     {
         path: 'login',
         canActivate: [],
@@ -43,6 +39,12 @@ export const ROUTES: Routes = [
             title: 'Forgot Password',
         } as SBRouteData,
     },
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'login',
+    }
+
 ];
 
 @NgModule({

@@ -3,10 +3,12 @@
         "enableIvy": false,
         "fullTemplateTypeCheck": true,
         "preserveWhitespaces": false,
-        "strictInjectionParameters": true
+        "strictInjectionParameters": true,
+        "strictNullChecks": false,       
     },
     "compileOnSave": false,
     "compilerOptions": {
+
         "strictPropertyInitialization": false,
         "baseUrl": "src",
         "declaration": false,
@@ -21,7 +23,7 @@
         ],
         "module": "esnext",
         "moduleResolution": "node",
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "outDir": "./dist/out-tsc",
         "paths": {
             "@app/*": [
@@ -35,11 +37,12 @@
             ],
             "@testing/*": [
                 "testing/*"
-            ]
+            ],
+       
         },
         "resolveJsonModule": true,
         "sourceMap": true,
-        "strict": true,
+        "strict": false,
         "target": "es2015",
         "typeRoots": [
             "node_modules/@types",

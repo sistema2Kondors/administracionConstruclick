@@ -1,69 +1,287 @@
 <sb-layout-dashboard>
 
     <form [formGroup]="productForm" (ngSubmit)="updateProduct()">
-        <div *ngFor="let item of productsDetails">
-            <div class="input-group mb-3 pt-3">
-                <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
-                <input type="text" [(ngModel)]="item.name" class="form-control" aria-label="Username" aria-describedby="basic-addon1" name="name" formControlName="name">
-                <input type="text" [(ngModel)]="item.brand" class="form-control" placeholder="Marca" aria-label="Username" aria-describedby="basic-addon1" formControlName="brand">
-            </div>
-            <label for="">Descripcion</label>
-            <div class="input-group mb-3">
-                <!-- <span class="input-group-text" id="basic-addon1">@</span> -->
-                <textarea type="text" [(ngModel)]="item.longDescription" class="form-control" placeholder="Descripcion producto" aria-label="Descripcion" aria-describedby="basic-addon1" formControlName="longDescription"> </textarea>
-            </div>
+
+        <div class="container-fluid">
+            <div class="contentProduct">
+
+                <div class="col-md-12 col-12">
+                    <h1 class="titleProduct">Información del producto</h1>
+                </div>
 
 
-            <div class="input-group mb-3">
-                <span class="input-group-text">$</span>
-                <input type="text" [(ngModel)]="item.price" class="form-control" placeholder="Precio" aria-label="Username" aria-describedby="basic-addon1" formControlName="price">
-                <input type="text" [(ngModel)]="item.quantity" class="form-control" placeholder="Cantidad" aria-label="Amount" formControlName="quantity">
-            </div>
+                <div class="col-12">
+                    <div class="especificaciones">
+                        <button type="button" class="btnEspecificaciones" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
+                                Agregar Especificaciones
+                            </button>
+                    </div>
+                </div>
 
 
-            <div class="input-group mb-3">
 
-                <input type="text" [(ngModel)]="item.idProvider" class="form-control" placeholder="Proveedor" aria-label="Amount" formControlName="idProvider">
-                <select class="form-select form-control" aria-label="Default select example">
-                        <option selected>Proveedor</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-            </div>
-            <div class="input-group mb-3">
+                <div *ngFor="let item of productsDetails">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <label>Nombre Producto</label>
+                            <input maxlength="60" type="text" [ngModel]="item.name" class="form-control inputProduct" aria-label="Username" aria-describedby="basic-addon1" name="name" formControlName="name">
 
-                <input type="text" [(ngModel)]="item.category" class="form-control" placeholder="Categoria" aria-label="Amount" formControlName="category">
-                <select class="form-select form-control" aria-label="Default select example">
-                        <option selected>Categoria</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-            </div>
+                            <div class="alert-danger" *ngIf="f.name.invalid && (f.name.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.name.errors.required">
+                                    El nombre es requerido.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.name.errors.minlength">
+                                    El nombre debe tener mínimo 5 caracteres.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.name.errors.maxlength">
+                                    Has pasado el numero de maximo caracteres permitidos.
+                                </div>
+                            </div>
 
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Ficha tecnica</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Hoja de seguridad</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
+                        </div>
 
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Imagen Principal</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
+                        <div class="col-md-6 col-12">
+                            <label>Marca</label>
+                            <input maxlength="25" type="text" [(ngModel)]="item.brand" class="form-control inputProduct" placeholder="Marca" aria-label="Username" name="textarea" rows="10" cols="50" aria-describedby="basic-addon1" formControlName="brand">
 
-            <div class="mb-3">
-                <label for="formFileMultiple" class="form-label">Imagenes carrucel</label>
-                <input class="form-control" type="file" id="formFileMultiple" multiple>
+                            <div class="alert-danger" *ngIf="f.brand.invalid && (f.brand.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.brand.errors.required">
+                                    La marca es requerida.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.brand.errors.minlength">
+                                    La marca debe tener mínimo 5 caracteres.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.brand.errors.maxlength">
+                                    Has pasado el numero de maximo caracteres permitidos.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 col-12">
+                            <label for="">Cantidad</label>
+                            <input maxlength="9" type="number" [(ngModel)]="item.quantity" class="form-control inputProduct" placeholder="Cantidad" aria-label="Amount" formControlName="quantity">
+
+                            <div class="alert-danger" *ngIf="f.quantity.invalid && (f.quantity.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.quantity.errors.required">
+                                    La Cantidad es requerida.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.quantity.errors.minlength">
+                                    La Cantidad debe tener mínimo 1 caracteres.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.quantity.errors.maxlength">
+                                    Has pasado el numero de maximo caracteres permitidos.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 col-12">
+                            <label>Precio</label>
+                            <input maxlength="10" type="number" [(ngModel)]="item.price" class="form-control inputProduct" placeholder="Precio" aria-label="Username" aria-describedby="basic-addon1" [value]="item.price " formControlName="price">
+
+                            <div class="alert-danger" *ngIf="f.price.invalid && (f.price.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.price.errors.required">
+                                    El precio es requerido.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.price.errors.minlength">
+                                    El precio debe tener mínimo 3 caracteres.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.price.errors.maxlength">
+                                    Has pasado el numero de maximo caracteres permitidos.
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="col-md-4 col-12">
+                            <label for="">Sku</label>
+                            <input maxlength="10" type="text" [(ngModel)]="item.sku" class="form-control inputProduct" placeholder="sku" aria-label="Amount" formControlName="sku">
+
+                            <div class="alert-danger" *ngIf="f.sku.invalid && (f.sku.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.sku.errors.required">
+                                    El sku es requerido.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.sku.errors.minlength">
+                                    El sku debe tener mínimo 5 caracteres.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.sku.errors.maxlength">
+                                    Has pasado el numero de maximo caracteres permitidos.
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 col-12">
+                            <label>Proveedor</label>
+                            <input type="text" hidden [(ngModel)]="item.idProvider._id" formControlName="idProvider" class="form-control" placeholder="Proveedor" aria-label="Amount">
+                            <select formControlName="idProvider" name="category" class="form-select" aria-label="Default select example">
+                                    <option  value="" selected="true" disabled="disabled">Seleccione Proveedor</option>
+                                    <option  *ngFor="let item of selectedProvider" [value]="item._id">{{item.name}}</option>
+                                </select>
+
+                            <div class="alert-danger" *ngIf="f.idProvider.invalid && (f.idProvider.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.idProvider.errors.required">
+                                    El proveedor es requerido.
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            <label>Categoría del Producto</label>
+                            <input type="text" hidden [(ngModel)]="item.category._id" formControlName="category" class="form-control" placeholder="Categoria" aria-label="Amount">
+                            <ng-select formControlName="category" name="category" class="form-control selectInputProduct" aria-label="Default select example">
+                                <ng-option value="" selected="true" disabled="disabled">Seleccione categoria</ng-option>
+                                <ng-option *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</ng-option>
+                            </ng-select>
+
+
+                            <div class="alert-danger" *ngIf="f.category.invalid && (f.category.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.category.errors.required">
+                                    El proveedor es requerido.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12 col-12">
+                            <label>Descripcion</label>
+                            <textarea maxlength="300" type="text" [(ngModel)]="item.longDescription" class="textDescription" placeholder="Descripcion producto" aria-label="Descripcion" aria-describedby="basic-addon1" formControlName="longDescription"> </textarea>
+
+                            <div class="alert-danger" *ngIf="f.longDescription.invalid && (f.longDescription.touched || submitted)">
+                                <div class="container-error-message" *ngIf="f.longDescription.errors.required">
+                                    La Description es requerida.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.longDescription.errors.minlength">
+                                    La Description debe tener mínimo 20 caracteres.
+                                </div>
+                                <div class="container-error-message" *ngIf="f.longDescription.errors.maxlength">
+                                    Has pasado el numero de maximo caracteres permitidos.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 col-12 textCenterItems">
+                            <label for="formFile" class="form-label">Ficha tecnica</label>
+                            <a [href]="item.dataSheet" class="displayFlextCenter"><img class="imgAppCoverPdf" src="assets/img/iconoPdf.png" target="_blank"></a>
+                            <input type="file" id="input" class="form-control inputFile">
+
+                        </div>
+
+                        <div class="col-md-4 col-12 textCenterItems">
+                            <label for="formFile" class="form-label">Hoja de seguridad</label>
+                            <a [href]="item.safetySheet" class="displayFlextCenter"><img class="imgAppCoverPdf" src="assets/img/iconoPdf.png" target="_blank"></a>
+                            <input type="file" id="input" class="form-control inputFile">
+                        </div>
+
+                        <div class="col-md-4 col-12 textCenterItems">
+                            <label for="formFile" class="form-label">Certificado de calidad</label>
+                            <a href="" class="displayFlextCenter"><img class="imgAppCoverPdf" src="assets/img/iconoPdf.png" target="_blank"></a>
+                            <input type="file" id="input" class="form-control inputFile">
+                        </div>
+
+
+                        <div class="col-md-4 col-12 textCenterItems">
+                            <label for="formFile" class="form-label">Imagen Principal</label>
+                            <div class="containerImgCarrucel">
+                                <img class="imgAppCover" [src]="item.coverImage" alt="">
+                            </div>
+
+                            <input type="file" id="input" class="form-control inputFile">
+                        </div>
+
+                        <div class="col-md-8 col-12 textCenterItems">
+                            <label for="formFileMultiple" class="form-label">Carrucel de Imagenes</label>
+                            <div class="containerImgCarrucel">
+                                <div *ngFor="let i of item.images">
+                                    <img class="imgAppCover" [src]="i" alt="">
+                                </div>
+                            </div>
+                            <input type="file" id="input" class="form-control inputFile" id="formFileMultiple" multiple>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class="contentBtnNext">
+                            <button type="submit" class="btn btnContinue"> Guardar</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        AGREGAR ESPECIFICACIONES DEL PRODUCTO
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="reviewProductForm">
+                        <div class="row">
+                            <div class="col-md-12 col-12">
+                                <label for="">Titulo</label>
+                                <input type="text" class="inputEspecificaciones" formControlName="title" />
+
+                                <div class="alert-danger" *ngIf="review.title.invalid && (review.title.touched || submReview)">
+                                    <div class="container-error-message" *ngIf="review.title.errors.required">
+                                        El titulo es requerido
+                                    </div>
+                                    <!-- <div class="container-error-message" *ngIf="review.title.errors.minlength">
+                                        El titulo debe tener mínimo 5 caracteres.
+                                    </div>
+                                    <div class="container-error-message" *ngIf="review.title.errors.maxlength">
+                                        Has pasado el numero de maximo caracteres permitidos.
+                                    </div> -->
+                                </div>
+
+                            </div>
+
+                            <div class="col-12">
+                                <label for="">Descripcion</label>
+
+                                <textarea type="text" class="textDescription" formControlName="detailReview"></textarea>
+
+                                <div class="alert-danger" *ngIf="review.detailReview.invalid && (review.detailReview.touched || submReview)">
+                                    <div class="container-error-message" *ngIf="review.detailReview.errors.required">
+                                        La descripcion es requerida.
+                                    </div>
+                                    <!-- <div class="container-error-message" *ngIf="review.detailReview.errors.minlength">
+                                        El nombre debe tener mínimo 5 caracteres.
+                                    </div>
+                                    <div class="container-error-message" *ngIf="review.detailReview.errors.maxlength">
+                                        Has pasado el numero de maximo caracteres permitidos.
+                                    </div> -->
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btnAgregar" (click)="registerReview()">Agregar</button>
+                    <button type="button" class="btn btnCerrar" data-bs-dismiss="modal">
+                        Cerrar
+                    </button>
+                    <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </sb-layout-dashboard>

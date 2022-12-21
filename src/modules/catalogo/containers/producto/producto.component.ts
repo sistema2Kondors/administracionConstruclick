@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ProductsServiceService } from '@app/services/products/products-service.service';
+import { AuthService } from '@modules/auth/services';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2';
 
@@ -13,7 +14,7 @@ export class ProductoComponent implements OnInit {
     productos: any[] = [];
     
 
-    constructor(private _productsServiceService: ProductsServiceService) {}
+    constructor(private _productsServiceService: ProductsServiceService, public _serviceAuth:AuthService) {}
     ngOnInit(): void {
         this.getAllProducts();
     }
@@ -21,22 +22,26 @@ export class ProductoComponent implements OnInit {
     getAllProducts() {
         this._productsServiceService.getAllProducts().subscribe((respuesta: any) => {
 
-           const companyUserIdLogin = "63629c3e1b26e4b02200e6e3"
+
+           const companyUserIdLogin = this._serviceAuth.data_id;
           //  const companyUserIdLogin = "63629bcd1b26e4b02200e6d9"
             const Array = [];
-            const actualizar = respuesta.data;
-            Array.push(actualizar);
+            // const actualizar = respuesta.data;
+            // Array.push(actualizar);
 
-              // for( let i of respuesta.data) {
+              for( let i of respuesta.data) {
              
-              //   if (i.companyUserId == companyUserIdLogin) {
-              //     const actualizar = i;
-              //     Array.push(actualizar);
-              //   }
-              // }
+                if (i.companyUserId == companyUserIdLogin) {
+                  const actualizar = i;
+                  Array.push(actualizar);
+                }
+              }
 
-            this.productos = Array[0];
-            // this.productos = Array;
+            // this.productos = Array[0];
+
+            // console.log("Aqui",  this.productos);
+            
+            this.productos = Array;
 
         });
     }
@@ -60,7 +65,7 @@ export class ProductoComponent implements OnInit {
             });
               Swal.fire(
                 '¡Eliminado!',
-                'Su archivo ha sido eliminado.',
+                'Su producto ha sido eliminado.',
                 'success'
               )
             }

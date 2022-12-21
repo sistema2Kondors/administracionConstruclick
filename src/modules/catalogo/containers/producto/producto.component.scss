@@ -1,11 +1,13 @@
-.contentProduct{
+.contentProduct {
     position: relative;
-    top:20px;
+    top: 20px;
 }
-.contentTable{
+
+.contentTable {
     position: relative;
-    top: 60px;
+    margin-top: 50px;
 }
+
 .form-select {
     background-color: #EBECF0;
     border: 1px solid grey;
@@ -14,28 +16,32 @@
     color: #C9CCDA;
     width: 100%;
 }
+
 @media(max-width: 768px) {
-    .form-select{
+    .form-select {
         width: 95%;
         margin: 13px 0px 0px 0px;
     }
 }
 
-.inputProduct{
+.inputProduct {
     background: #EBECF0;
     border: 1px solid grey;
     border-radius: 0px 14px 14px 0px;
     height: auto;
     width: 38%;
     position: relative;
+    margin: 5px;
 }
+
 @media(max-width: 768px) {
-    .inputProduct{
+    .inputProduct {
         width: 95%;
         margin: 13px 0px 0px 0px;
     }
 }
-.btnProduct{
+
+.btnProduct {
     color: #EBECF0;
     background: transparent linear-gradient(180deg, #B2BFE1 0%, #99A5C1 100%) 0% 0% no-repeat padding-box;
     box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
@@ -43,31 +49,35 @@
     width: 100%;
     height: 44px;
 }
+
 .btnProduct:hover {
     background: #B2BFE1;
     color: #fff;
     border: none;
- }
+}
 
-.btnTable{
+.btnTable {
     color: #A2A9B9;
     background: #EBECF0 0% 0% no-repeat padding-box;
     box-shadow: inset -2.12px -2.12px 6px #FFFFFF;
     border-radius: 13px;
     height: 34px;
 }
-.table-striped > tbody > tr:nth-of-type(odd) > * {
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
     --bs-table-accent-bg: none;
     color: #A2A9B9;
 }
-.table > :not(caption) > * > * {
-    
+
+.table> :not(caption)>*>* {
     color: #A2A9B9;
-} 
+}
+
 .titleTable {
     color: #757E95;
 }
-.cantidadLista{
+
+.cantidadLista {
     box-shadow: inset -2.12px -2.12px 6px #ffffff;
     position: relative;
     height: 35px;
@@ -78,6 +88,6 @@
     padding: 5px;
 }
 
-.iconosTable{
+.iconosTable {
     width: 30px;
 }

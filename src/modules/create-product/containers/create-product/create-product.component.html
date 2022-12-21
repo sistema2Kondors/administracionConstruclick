@@ -3,10 +3,11 @@
     <div class="row">
         <div class="col-md-6 col-12">
             <div class="contentBtnMensajes">
-                <button type="button" class="btn btnContinue" routerLink="/tienda"> < VOLVER</button>
+                <button type="button" class="btn btnContinue" routerLink="/tienda">< VOLVER</button>
             </div>
         </div>
     </div>
+
     <form [formGroup]="productForm" (ngSubmit)="onProducts()">
         <div class="container-fluid">
             <div class="contentProduct">
@@ -14,55 +15,110 @@
                     <div class="col-md-12 col-12">
                         <h1 class="titleProduct">Completa la información del producto</h1>
                     </div>
-                    <div class="col-md-12 col-12">
+
+                    <div class="col-md-6 col-12">
                         <label>Nombre Producto</label>
-                    </div>
-                    <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" [class.is-invalid]="f.name.errors && f.name.touched" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar Nombre
+                        <input maxlength="60" type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Nombre Producto" aria-describedby="inputGroup-sizing-default" formControlName="name" />
+                        <div class="alert-danger" *ngIf="f.name.invalid && (f.name.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.name.errors.required">
+                                El nombre es requerido.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.name.errors.minlength">
+                                El nombre debe tener mínimo 5 caracteres.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.name.errors.maxlength">
+                                Has pasado el numero de maximo caracteres permitidos.
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" [class.is-invalid]="f.brand.errors && f.brand.touched" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar Marca
+                        <label>Marca</label>
+                        <input maxlength="25" type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Marca" aria-describedby="inputGroup-sizing-default" formControlName="brand" />
+                        <div class="alert-danger" *ngIf="f.brand.invalid && (f.brand.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.brand.errors.required">
+                                La marca es requerida.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.brand.errors.minlength">
+                                La marca debe tener mínimo 5 caracteres.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.brand.errors.maxlength">
+                                Has pasado el numero de maximo caracteres permitidos.
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-12">
-                        <textarea class="textDescription" [class.is-invalid]="f.longDescription.errors && f.longDescription.touched" name="textarea" rows="10" cols="50" placeholder="Descripción del producto" formControlName="longDescription"></textarea>
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar Descripción
+
+                    <div class="col-md-4 col-12">
+                        <label>Cantidad</label>
+                        <input maxlength="9" type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity" />
+                        <div class="alert-danger" *ngIf="f.quantity.invalid && (f.quantity.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.quantity.errors.required">
+                                La Cantidad es requerida.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.quantity.errors.minlength">
+                                La Cantidad debe tener mínimo 1 caracteres.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.quantity.errors.maxlength">
+                                Has pasado el numero de maximo caracteres permitidos.
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.quantity.errors && f.quantity.touched" aria-label="Sizing example input" placeholder="Cantidad" aria-describedby="inputGroup-sizing-default" formControlName="quantity">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar Cantidad
+
+                    <div class="col-md-4 col-12">
+                        <label>Precio</label>
+                        <input maxlength="10" type="number" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price" />
+
+                        <div class="alert-danger" *ngIf="f.price.invalid && (f.price.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.price.errors.required">
+                                El precio es requerido.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.price.errors.minlength">
+                                El precio debe tener mínimo 3 caracteres.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.price.errors.maxlength">
+                                Has pasado el numero de maximo caracteres permitidos.
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.price.errors && f.price.touched" aria-label="Sizing example input" placeholder="Precio" aria-describedby="inputGroup-sizing-default" formControlName="price">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar Precio
-                        </div>
-                    </div>
+<<<<<<< HEAD
                     <div class="col-md-6 col-12">
                         <label for="">Sku</label>
                         <input type="number" class="form-control inputProduct" [class.is-invalid]="f.sku.errors && f.sku.touched" aria-label="Sizing example input" placeholder="SKU" aria-describedby="inputGroup-sizing-default" formControlName="sku">
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             Ingresar SKU
+=======
+
+                    <div class="col-md-4 col-12">
+                        <label>Sku</label>
+                        <input maxlength="10" type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="SKU" aria-describedby="inputGroup-sizing-default" formControlName="sku" />
+                        <div class="alert-danger" *ngIf="f.sku.invalid && (f.sku.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.sku.errors.required">
+                                El sku es requerido.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.sku.errors.minlength">
+                                El sku debe tener mínimo 5 caracteres.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.sku.errors.maxlength">
+                                Has pasado el numero de maximo caracteres permitidos.
+                            </div>
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Proveedor</label>
-                        <select formControlName="idProvider" name="category" class="form-select" [class.is-invalid]="f.idProvider.errors && f.idProvider.touched" aria-label="Default select example">
-                            <option value="" selected="true" disabled="disabled">Seleccione Proveedor</option>
-                            <option  *ngFor="let item of selectedProvider" [value]="item._id">{{item.name}}</option>
+                        <select formControlName="idProvider" name="category" class="form-select" aria-label="Default select example">
+                            <option value="" selected="true" disabled="disabled">
+                                Seleccione Proveedor
+                            </option>
+                            <option *ngFor="let item of selectedProvider" [value]="item._id">
+                                {{ item.name }}
+                            </option>
                         </select>
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Seleccione el proveedor
+
+                        <div class="alert-danger" *ngIf="f.idProvider.invalid && (f.idProvider.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.idProvider.errors.required">
+                                El proveedor es requerido.
+                            </div>
                         </div>
  
                         <!-- <input type="text" class="form-control inputProduct" formControlName="idProvider"> -->
@@ -70,6 +126,7 @@
                     </div>
 
                     <div class="col-md-6 col-12">
+<<<<<<< HEAD
                         <label for="">Categoría del Producto</label>
                         <!-- <select formControlName="category" name="category" class="form-select" [class.is-invalid]="f.category.errors && f.category.touched" aria-label="Default select example">
                             <option value="" selected="true" disabled="disabled">Seleccione categoria</option>
@@ -108,15 +165,86 @@
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="dataSheet"> -->
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             Seleccione Ficha técnica
+=======
+                        <label>Categoría del Producto</label>
+                        <ng-select formControlName="category" name="category" class="form-control selectInputProduct" aria-label="Default select example">
+                            <ng-option value="" selected="true" disabled="disabled">Seleccione categoria</ng-option>
+                            <ng-option *ngFor="let item of arrayCategories" [value]="item._id">{{ item.name }}
+                            </ng-option>
+                        </ng-select>
+
+                        <div class="alert-danger" *ngIf="f.category.invalid && (f.category.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.category.errors.required">
+                                El proveedor es requerido.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 col-12">
+                        <label>Descripcion</label>
+                        <textarea maxlength="300" type="text" class="textDescription" placeholder="Descripcion producto" aria-label="Descripcion" aria-describedby="basic-addon1" formControlName="longDescription">
+                        </textarea>
+
+                        <div class="alert-danger" *ngIf="
+                                f.longDescription.invalid &&
+                                (f.longDescription.touched || submitted)
+                            ">
+                            <div class="container-error-message" *ngIf="f.longDescription.errors.required">
+                                La Description es requerida.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.longDescription.errors.minlength">
+                                La Description debe tener mínimo 20 caracteres.
+                            </div>
+                            <div class="container-error-message" *ngIf="f.longDescription.errors.maxlength">
+                                Has pasado el numero de maximo caracteres permitidos.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-12">
+                        <label for="">Agregar Ficha Técnica</label>
+                        <input type="file" [(ngModel)]="idsValue" accept=".pdf" class="form-control inputFile" (change)="PdfSelectedData($event)" formControlName="dataSheet" />
+                        <div *ngIf="f.dataSheet.valid">
+                            <div *ngIf="selectedPdfData; else noFile">
+
+                                <h4 class="archiveFIle">{{ selectedPdfData.name }}</h4>
+
+                            </div>
+                            <ng-template #noFile>
+                                <!-- <h4 class="archiveFIle">Archivo</h4> -->
+                            </ng-template>
+                        </div>
+
+                        <div class="alert-danger" *ngIf="f.dataSheet.invalid && (f.dataSheet.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.dataSheet.errors.required">
+                                La Ficha técnica es requerido.
+                            </div>
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar hoja de seguridad</label>
+<<<<<<< HEAD
                         <input type="file" class="form-control inputFile" (change)="PdfSelectedSafe($event)" formControlName="safetySheet" [class.is-invalid]="f.safetySheet.errors && f.safetySheet.touched"/>
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             Seleccione Hoja de Seguridad
+=======
+                        <input type="file" [(ngModel)]="idsValueSelectSafe" accept=".pdf" class="form-control inputFile" (change)="PdfSelectedSafe($event)" formControlName="safetySheet" />
+                        <div *ngIf="f.safetySheet.valid">
+                            <div *ngIf="selectedPdfSafe; else noFileSegurity">
+                                <h4 class="archiveFIle">{{ selectedPdfSafe.name }}</h4>
+                            </div>
+                            <ng-template #noFileSegurity>
+                                <!-- <h4 class="archiveFIle">Archivo</h4> -->
+                            </ng-template>
+                        </div>
+                        <div class="alert-danger" *ngIf="f.safetySheet.invalid && (f.safetySheet.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.safetySheet.errors.required">
+                                La hoja de seguridad es requerido.
+                            </div>
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
@@ -132,15 +260,33 @@
                     </div> -->
                     <div class="col-md-6 col-12">
                         <label for="">Agregar imagen principal</label>
+<<<<<<< HEAD
                         <input type="file" class="form-control inputFile" (change)="onImgCover($event)" formControlName="coverImage" [class.is-invalid]="f.coverImage.errors && f.coverImage.touched"/>
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="mainImage"> -->
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             Seleccione la imágen principal
+=======
+                        <input type="file" [(ngModel)]="idsValueImageCover" class="form-control inputFile" accept="image/*" (change)="onImgCover($event)" formControlName="coverImage" />
+
+                        <div *ngIf="f.coverImage.valid">
+                            <div *ngIf="selectedImgCover; else noImg">
+                                <h4 class="archiveFIle">{{ selectedImgCover.name }}</h4>
+                            </div>
+                            <ng-template #noImg>
+                                <!-- <h4 class="archiveFIle">Imagen</h4> -->
+                            </ng-template>
+                        </div>
+                        <div class="alert-danger" *ngIf="f.coverImage.invalid && (f.coverImage.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.coverImage.errors.required">
+                                La imagen principal es requerido.
+                            </div>
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar Carrusel de imágenes</label>
+<<<<<<< HEAD
                         <input type="file" class="form-control inputFile" id="file" multiple (change)="selectFilesGallery($event)" formControlName="images" [class.is-invalid]="f.images.errors && f.images.touched" />
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             Seleccione las imágenes
@@ -149,46 +295,82 @@
                             <!-- <img *ngFor='let preview of previews' [src]="preview" class="preview"> -->
                         </div>
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="carouselImages"> -->
+=======
+                        <input type="file" [(ngModel)]="idsValueImageCarousel" class="form-control inputFile" accept="image/*" id="file" multiple (change)="selectFilesGallery($event)" formControlName="images" />
+
+                        <div *ngIf="f.images.valid">
+                            <div *ngFor="let item of selectedImgArray">
+                                <div *ngIf="selectedImgArray; else noImgMultiple">
+                                    <h4 class="archiveFIle">{{ item.name}}</h4>
+                                </div>
+                            </div>
+                            <ng-template #noImgMultiple>
+                                <!-- <h4 class="archiveFIle">Imagen 444</h4> -->
+                            </ng-template>
+                        </div>
+
+                        <div class="alert-danger" *ngIf="f.images.invalid && (f.images.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.images.errors.required">
+                                Seleccione las imágenes.
+                            </div>
+                        </div>
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                     </div>
                     <div class="col-md-12 col-12">
                         <div class="contentBtnNext">
-                            <button type="submit" class="btn btnContinue"> Guardar</button>
+                            <button type="submit" class="btn btnContinue">Guardar</button>
                         </div>
                     </div>
                 </div>
             </div>
             </div>
     </form>
+<<<<<<< HEAD
     <div class="col-12">
+=======
+
+    <!-- <div class="col-12">
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
         <div class="especificaciones">
             <button type="button" class="btn btnEspecificaciones" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
                 Agregar Especificaciones
             </button>
         </div>
-    </div>
-    <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered ">
+    </div> -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">AGREGAR ESPECIFICACIONES DEL PRODUCTO</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">
+                        AGREGAR ESPECIFICACIONES DEL PRODUCTO
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="reviewProductForm" (ngSubmit)="registerReview()">
-
+                    <form [formGroup]="reviewProductForm">
                         <div class="row">
+<<<<<<< HEAD
                             <select formControlName="id" name="category" class="selectProduct" >
                                 <option value="" selected="true" disabled="disabled">Seleccione un producto </option>
                                 <option  *ngFor="let item of selectedProducts" [value]="item._id"> {{item.name}}</option>
+=======
+                            <select formControlName="id" name="category" class="selectProduct">
+                                <option value="" selected="true" disabled="disabled">
+                                    Seleccione un producto
+                                </option>
+                                <option *ngFor="let item of selectedProducts" [value]="item._id">
+                                    {{ item.name }}
+                                </option>
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                             </select>
                             <div class="col-md-12 col-12">
                                 <label for="">Titulo</label>
-                                <input type="text" class="inputEspecificaciones" formControlName="title">
+                                <input type="text" class="inputEspecificaciones" formControlName="title" />
                             </div>
 
                             <div class="col-12">
                                 <label for="">Descripcion</label>
-                                <input type="text" class="textDescription" formControlName="detailReview">
+                                <input type="text" class="textDescription" formControlName="detailReview" />
                             </div>
                             <!-- <div class="col-12">
                                 <label for="">Email</label>
@@ -196,22 +378,24 @@
                 
                             </div> -->
                         </div>
+<<<<<<< HEAD
                         <br>
 
                         
 
+=======
+                        <br />
+>>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                     </form>
-
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btnAgregar"> Agregar</button>
-                    <button type="button" class="btn btnCerrar" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btnAgregar" (click)="registerReview()">Agregar</button>
+                    <button type="button" class="btn btnCerrar" data-bs-dismiss="modal">
+                        Cerrar
+                    </button>
                     <!-- <button type="button" class="btn btn-primary">Understood</button> -->
                 </div>
             </div>
         </div>
     </div>
-
-
-
 </sb-layout-dashboard>

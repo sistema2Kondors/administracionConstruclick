@@ -12,7 +12,7 @@ export interface Datum {
     _id:             string;
     name:            string;
     longDescription: string;
-    sku:             number;
+    sku:             string;
     images:          string[];
     brand:           string;
     category:        Category;

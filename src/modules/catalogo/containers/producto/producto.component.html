@@ -1,21 +1,20 @@
 <sb-layout-dashboard>
     <sb-dashboard-head title="Catálogo de productos" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
-    
-        <div class="row contentProduct">
-            <div class="col-md-2 col-12 ">
-                <button type="button" class="btn btnProduct" routerLink="/creacion-masiva">Creación masiva</button>
-            </div>
-            <div class="col-md-2 col-12">
-                <button type="button" class="btn btnProduct">Agregar producto</button>
-            </div>
-            <div class="col-md-2 col-6 ">
-                <select class="form-select" aria-label="Default select example">
+
+    <div class="row contentProduct">
+        <div class="col-md-2 col-12 ">
+            <button type="button" class="btn btnProduct" routerLink="/creacion-masiva">Creación masiva</button>
+        </div>
+        <div class="col-md-2 col-12">
+            <button type="button" class="btn btnProduct">Agregar producto</button>
+        </div>
+        <div class="col-md-2 col-6 ">
+            <select class="form-select" aria-label="Default select example">
                     <option selected>Selección</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
-
         </div>
         <div class="col-md-6 col-6">
             <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Buscar" aria-describedby="inputGroup-sizing-default">
@@ -28,20 +27,26 @@
             <thead>
                 <tr>
                     <th class="titleTable" scope="col">Img</th>
-                    <!-- <th class="titleTable" scope="col">id</th> -->
-                    <th class="titleTable" scope="col">Nombre</th>
-                    <th class="titleTable" scope="col">Descripcion</th>
+                    <th class="titleTable" scope="col">Sku</th>
+                    <th class="titleTable" scope="col">Producto</th>
+                    <th class="titleTable" scope="col">Marca</th>
                     <th class="titleTable" scope="col">Precio</th>
+                    <th class="titleTable" scope="col">Cantidad</th>
+                    <th class="titleTable" scope="col">Categoria</th>
+                    <!-- <th class="titleTable" scope="col">Descripcion</th> -->
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of productos">
                     <td><img [src]="item.coverImage[0]" class="iconosTable"></td>
 
-                    <!-- <th scope="row">{{ item._id }}</th> -->
+                    <th scope="row">{{ item.sku }}</th>
                     <td>{{ item.name }}</td>
-                    <td>{{ item.longDescription | slice:0:42 }}...</td>
-                    <td>{{ item.price }}</td>
+                    <td>{{ item.brand }}</td>
+                    <td>{{ item.price | currency : '' : 'symbol' : '1.0-0' }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.category.name }}</td>
+                    <!-- <td>{{ item.longDescription | slice:0:42 }}...</td> -->
 
                     <td><button type="button" class="btn btnTable" [routerLink]="['/catalogo/detalles-producto', item._id]">Ver detalle</button></td>
                     <td>

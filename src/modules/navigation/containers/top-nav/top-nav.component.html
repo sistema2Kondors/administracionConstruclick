@@ -6,7 +6,8 @@
             </a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" data-cy="topNavToggleSideNav" (click)="toggleSideNav()">
                 <fa-icon [icon]='["fas", "bars"]'></fa-icon>
-            </button><!-- Navbar Search-->
+            </button>
+            <!-- Navbar Search-->
         </div>
         <form class="d-flex" role="search">
             <div class="input-group">
@@ -19,10 +20,16 @@
                 <sb-top-nav-user></sb-top-nav-user>
             </ul>
         </form>
+
         <!-- Navbar-->
-        
+
     </div>
-    
+    <div class="navUser">
+        <p class="nameUser">{{ _serviceAuth.dataName }}</p>
+        <a href="http://localhost:4200/auth/login"><button type="button" (click)="logout()">Logout</button></a>
+    </div>
+
+
 </nav>
 
 <!-- class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" -->

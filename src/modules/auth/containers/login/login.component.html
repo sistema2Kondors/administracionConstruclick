@@ -2,40 +2,63 @@
     <div class="row">
         <div class="col-md-8 col-12">
             <div class="contentLogo">
-                
+
                 <img src="assets/img/imgLogin.png" alt="" style="width: 40%" />
             </div>
         </div>
         <div class="col-md-4 col-12">
             <div class="contentForm">
-                    <form>
-                        <h1 class="titleLogin">INGRESAR</h1>
-                        <div class="form-group">
-                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="USUARIO"/>
+                <form [formGroup]="loginUserCompany" (ngSubmit)="login()" class="textAlignCenter">
+                    <h1 class="titleLogin">INGRESAR</h1>
+                    <div class="form-group">
+                        <input class="form-control" id="inputEmailAddress" type="email" formControlName="email" name="email" placeholder="USUARIO" />
+
+                    </div>
+                    <div class="alert-danger" *ngIf="email.invalid && (email.touched || submitted)">
+                        <div class="container-error-message" *ngIf="email.errors.required">
+                            El correo es requerido
                         </div>
-                        <div class="form-group">
-                            <input class="form-control" id="inputPassword" type="password" placeholder="CONTRASEÑA"/>
+                        <div class="container-error-message" *ngIf="(email.touched || submitted) && email.invalid && email.errors.pattern">
+                            Por favor ingrese un correo valido
                         </div>
-                        <div>
-                            <hr>
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" [(ngModel)]="idsValue" id="inputPassword" type="password" placeholder="Contraseña" formControlName="password" name="password" />
+                    </div>
+
+                    <div class="alert-danger" *ngIf="password.invalid && (password.touched || submitted)">
+                        <div class="container-error-message" *ngIf="password.errors.required">
+                            La Contraseña es requerida.
                         </div>
-                        <div>
-                            <img src="assets/img/iconos-login/google.png" alt="" class="logos"/>
-                            <img src="assets/img/iconos-login/facebook.png" alt="" class="logos"/>
-                            <img src="assets/img/iconos-login/Linkeding.png" alt="" class="logos"/>
+                        <div class="container-error-message" *ngIf="password.errors.minlength">
+                            La Contraseña debe tener mínimo 8 caracteres.
                         </div>
-                        <div>
-                            <h3 class="textLogin">¿Olvidaste tu contraseña?</h3>
-                            <h3 class="textLogin">Registrate en un click</h3>
+                        <div class="container-error-message" *ngIf="password.errors.maxlength">
+                            Has pasado el numero de maximo caracteres permitidos.
                         </div>
-                        <button type="button" class="btn btnLogin">ENTRAR</button>
+                    </div>
+
+                    <div>
+                        <hr>
+                    </div>
+                    <div>
+                        <img src="assets/img/iconos-login/google.png" alt="" class="logos" />
+                        <img src="assets/img/iconos-login/facebook.png" alt="" class="logos" />
+                        <img src="assets/img/iconos-login/Linkeding.png" alt="" class="logos" />
+                    </div>
+                    <div>
+                        <h3 class="textLogin">¿Olvidaste tu contraseña?</h3>
+                        <!-- <h3 class="textLogin">Registrate en un click</h3> -->
+                    </div>
+                    <button type="submit" class="btn btnLogin">ENTRAR</button>
 
 
-                        <!-- <div class="form-group">
+                    <!-- <div class="form-group">
                                 <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" /><label class="custom-control-label" for="rememberPasswordCheck">Remember password</label></div>
                             </div>
                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" routerLink="/auth/forgot-password">Forgot Password?</a><a class="btn btn-primary" routerLink="/dashboard">Login</a></div> -->
-                    </form>
+                </form>
             </div>
         </div>
     </div>
