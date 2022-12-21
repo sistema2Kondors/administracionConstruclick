@@ -1,6 +1,7 @@
 /* tslint:disable: ordered-imports*/
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CheckAuthGuard } from '@app/guards/auth-login/check-auth.guard';
 import { SBRouteData } from '@modules/navigation/models';
 
 /* Module */
@@ -20,7 +21,7 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: authContainers.LoginComponent,
         data: {
-            title: 'Pages Login - SB Admin Angular',
+            title: 'Admin - construclick ',
         } as SBRouteData,
     },
     {

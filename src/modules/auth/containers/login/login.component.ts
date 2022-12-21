@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
 
       this.formLogin();
+    
 
     }
 
@@ -74,6 +75,7 @@ export class LoginComponent implements OnInit {
               }else{
                 this.idsValue = '';
                 this.notAdministratorPermissions();
+                this._serviceLogin.logout();
                 
               }
             },

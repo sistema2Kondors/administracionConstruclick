@@ -6,9 +6,10 @@ import { AppCommonModule } from '@common/app-common.module';
 import { NavigationModule } from '@modules/navigation/navigation.module';
 import { ArchwizardModule } from 'angular-archwizard';
 
-import * as OrdersStepperComponent from './components';
+
 import * as OngoingOrdersContainers from './containers';
 import { OngoingOrdersComponent } from './containers/ongoing-orders/ongoing-orders.component';
+import { OrdersStepperComponent } from './components';
 
 @NgModule({
     imports: [
@@ -21,7 +22,7 @@ import { OngoingOrdersComponent } from './containers/ongoing-orders/ongoing-orde
         ArchwizardModule,
     ],
     providers: [],
-    declarations: [...OngoingOrdersContainers.containers, OngoingOrdersComponent],
+    declarations: [...OngoingOrdersContainers.containers, OngoingOrdersComponent, OrdersStepperComponent],
     exports: [...OngoingOrdersContainers.containers, OngoingOrdersComponent],
 })
 export class OngoingOrdersModule {}

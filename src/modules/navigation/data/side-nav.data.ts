@@ -42,8 +42,8 @@ export const sideNavItems: SideNavItems = {
     },
     ordenes: {
         img: 'assets/img/iconos-menu/iconoOrdenesCurso.png',
-        text: 'Órdenes en curso',
-        link: '/ordenes-curso',
+        text: 'Órdenes en curso ',
+        // link: '/ordenes-curso',
     },
     historial: {
         img: 'assets/img/iconos-menu/iconoHistorialOrdenes.png',

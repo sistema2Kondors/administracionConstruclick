@@ -5,6 +5,6 @@ import { Observable, of } from 'rxjs';
 @Injectable()
 export class AuthGuard implements CanActivate {
     canActivate(): Observable<boolean> {
-        return of(true);
+        return of(false);
     }
 }
