@@ -1,25 +1,49 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="CONSULTAR CATEGORIAS" class="titleVision" [hideBreadcrumbs]="false"></sb-dashboard-head>
-        <div class="row contentProduct">
-            <div class="col-md-2 col-12 ">
-                <button type="button" class="btn btnProduct" routerLink="/creacion-masiva">Creación masiva</button>
-            </div>
-            <div class="col-md-2 col-12">
-                <button type="button" class="btn btnProduct">Agregar producto</button>
-            </div>
-            <div class="col-md-2 col-6 ">
-                <select class="form-select" aria-label="Default select example">
-                        <option selected>Selección</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-            </div>
-            <div class="col-md-6 col-6">
-                <input type="text" class="form-control inputProduct" aria-label="Sizing example input" placeholder="Buscar" aria-describedby="inputGroup-sizing-default">
-            </div>
+    <sb-dashboard-head title="CONSULTAR PROVEEDORES" class="titleVision" [hideBreadcrumbs]="false"></sb-dashboard-head>
+
+    <div class="row contentProduct">
+        <div class="col-md-4 col-12">
+            <button type="button" class="btn btnProduct" routerLink="/consultas/check-categories">Consultar Categoria</button>
         </div>
-    
-    
+        <div class="col-md-9 col-6 ">
+           <label>Categoría del Provider</label>
+           <ng-select [(ngModel)]="opcionSeleccionado" name="category" class="form-control selectInputProduct" aria-label="Default select example">
+                <ng-option value="" selected="true" disabled="disabled" >Seleccione Categoría</ng-option>
+                <ng-option *ngFor="let item of selectedProvider" [value]="item._id">{{item.name}}</ng-option>
+           </ng-select>
+           <p class="idConsulta">{{opcionSeleccionado}}</p>
+        </div>
+        
+    </div>
+
+
+    <div class="contentTable">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="titleTable" scope="col">Nombre</th>
+                    <th class="titleTable" scope="col">Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of selectedProvider">
+                    <td>{{ item.name }}</td>
+                    <td>{{item._id}} </td>
+                    <!-- <td><button type="button" class="btn btnTable"
+                            [routerLink]="['/catalogo/detalles-producto', item._id]">Ver detalle</button></td> -->
+                    <td>
+                        <!-- <button type="button" class="btn btn-close-white" (click)="deleteProduct(item._id)">
+                            <img src="assets/img/iconoBasura.png" class="iconosTable">
+                        </button> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
 
 </sb-layout-dashboard>

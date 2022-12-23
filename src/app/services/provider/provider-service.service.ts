@@ -16,8 +16,4 @@ export class ProviderServiceService {
     const URL = `${environment.DOMAIN_URL}/${ProviderServiceEntries.PRODUCTS_ENDPOINT_POST}`
     return <Observable<IProviderModel>> this._genericService.genericPostCustomer(URL, null);
   }
-
-  
-
-
 }
