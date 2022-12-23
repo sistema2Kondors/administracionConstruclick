@@ -15,10 +15,10 @@ const routes: Routes = [
     {
         path: '',
         data: {
-            title: 'catalogo',
+            title: 'consulta',
             breadcrumbs: [
                 {
-                    text: 'catalogo',
+                    text: 'consulta',
                     active: true,
                 },
             ],

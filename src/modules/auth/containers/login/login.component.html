@@ -11,7 +11,7 @@
                 <form [formGroup]="loginUserCompany" (ngSubmit)="login()" class="textAlignCenter">
                     <h1 class="titleLogin">INGRESAR</h1>
                     <div class="form-group">
-                        <input class="form-control" id="inputEmailAddress" type="email" formControlName="email" name="email" placeholder="USUARIO" />
+                        <input class="form-control" id="inputEmailAddress" type="email" formControlName="email" name="email" placeholder="Usuario" />
 
                     </div>
                     <div class="alert-danger" *ngIf="email.invalid && (email.touched || submitted)">
