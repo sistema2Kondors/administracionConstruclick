@@ -135,6 +135,14 @@ const routes: Routes = [
             ),
             canActivate:[CheckLoginGuard],
     },
+    {
+        path: 'consulta',
+        loadChildren: () =>
+            import('modules/inquiries/inquieres-routing/inquieres-routing.module').then(
+                m => m.InquieresRoutingModule
+            ),
+            canActivate:[CheckLoginGuard],
+    },
 
     {
         path: '',
