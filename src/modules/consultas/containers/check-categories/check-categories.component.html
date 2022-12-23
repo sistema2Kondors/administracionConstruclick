@@ -1,12 +1,45 @@
 <sb-layout-dashboard>
-    <sb-dashboard-head title="CONSULTAR CATEGORIAS" class="titleVision" [hideBreadcrumbs]="false"></sb-dashboard-head>
-        <div class="row contentProduct">
-            <div class="col-md-2 col-12 ">
-                <button type="button" class="btn btnProduct" routerLink="/creacion-masiva">Creación masiva</button>
-            </div>
-            
-        </div>
-    
-    
+    <sb-dashboard-head title="Consultar Categorias" class="titleNotifications" [hideBreadcrumbs]="false"></sb-dashboard-head>
+
+    <div class="col-md-2 col-12">
+        <button type="button" class="btn btnProduct" routerLink="/consultas/check-provider">Consultar Proveedor</button>
+    </div>
+
+    <label>Categoría del Producto</label>
+    <ng-select [(ngModel)]="opcionSeleccionado" name="category" class="form-control selectInputProduct" aria-label="Default select example">
+        <ng-option value="" selected="true" disabled="disabled">Seleccione categoria</ng-option>
+        <ng-option *ngFor="let item of arrayCategories" [value]="item._id">{{ item.name }}
+        </ng-option>
+    </ng-select>
+
+    <p class="idConsulta">{{opcionSeleccionado}}</p>
+
+    <!-- <p [hidden]="opcionSeleccionado == '0'">Haz seleccionado la opción # {{ verSeleccion }}</p> -->
+
+    <div class="contentTable">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="titleTable" scope="col">Nombre Categoria</th>
+                    <th class="titleTable" scope="col">Id Categoria</th>
+
+                    <!-- <th class="titleTable" scope="col">Descripcion</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of arrayCategories">
+
+                    <td>{{ item.name }}</td>
+                    <td>{{ item._id }}</td>
+                    <!-- <td>{{ item.price | currency : '' : 'symbol' : '1.0-0' }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.category.name }}</td> -->
+
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
 
 </sb-layout-dashboard>

@@ -10,8 +10,6 @@ import { ConsultasModule } from './consultas.module';
 
 const routes: Routes = [
 
-
-
     {
         path: '',
         data: {

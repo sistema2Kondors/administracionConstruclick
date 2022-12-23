@@ -79,13 +79,6 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div class="col-md-6 col-12">
-                        <label for="">Sku</label>
-                        <input type="number" class="form-control inputProduct" [class.is-invalid]="f.sku.errors && f.sku.touched" aria-label="Sizing example input" placeholder="SKU" aria-describedby="inputGroup-sizing-default" formControlName="sku">
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar SKU
-=======
 
                     <div class="col-md-4 col-12">
                         <label>Sku</label>
@@ -100,7 +93,6 @@
                             <div class="container-error-message" *ngIf="f.sku.errors.maxlength">
                                 Has pasado el numero de maximo caracteres permitidos.
                             </div>
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
@@ -120,56 +112,16 @@
                                 El proveedor es requerido.
                             </div>
                         </div>
- 
+
                         <!-- <input type="text" class="form-control inputProduct" formControlName="idProvider"> -->
                         <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
                     </div>
 
                     <div class="col-md-6 col-12">
-<<<<<<< HEAD
-                        <label for="">Categoría del Producto</label>
-                        <!-- <select formControlName="category" name="category" class="form-select" [class.is-invalid]="f.category.errors && f.category.touched" aria-label="Default select example">
-                            <option value="" selected="true" disabled="disabled">Seleccione categoria</option>
-                            <option  *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</option>
-                        </select> -->
-                        <!-- <input list="categoria" name="categoria" type="text" placeholder="Elige una categoría">
-                        <datalist id="categoria" formControlName="category" name="category" [class.is-invalid]="f.category.errors && f.category.touched" aria-label="Default select example">
-                            <option  *ngFor="let item of arrayCategories" [value]="item._id">{{item.name}}</option>
-                        </datalist>
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Seleccione la categoría
-                        </div> -->
-                        <!-- <div class="ng-autocomplete">
-                            <ng-autocomplete 
-                              [data]=""
-                              [searchKeyword]=""
-                              placeholder="Select country"
-                              [itemTemplate]="itemTemplate"
-                              [notFoundTemplate]="notFoundTemplate">                                 
-                            </ng-autocomplete>
-                            
-                            <ng-template #itemTemplate let-item>
-                            <a [innerHTML]="item.name"></a>
-                            </ng-template>
-                            
-                            <ng-template #notFoundTemplate let-notFound>
-                            <div [innerHTML]="notFound"></div>
-                            </ng-template>
-                        </div> -->
-                    </div> 
-
-
-                    <div class="col-md-6 col-12">
-                        <label for="">Agregar Ficha Técnica</label>
-                        <input type="file" id="input" class="form-control inputFile" (change)="PdfSelectedData($event)" formControlName="dataSheet" [class.is-invalid]="f.dataSheet.errors && f.dataSheet.touched">
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="dataSheet"> -->
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Seleccione Ficha técnica
-=======
                         <label>Categoría del Producto</label>
                         <ng-select formControlName="category" name="category" class="form-control selectInputProduct" aria-label="Default select example">
                             <ng-option value="" selected="true" disabled="disabled">Seleccione categoria</ng-option>
-                            <ng-option *ngFor="let item of arrayCategories" [value]="item._id">{{ item.name }}
+                            <ng-option *ngFor="let item of arrayCategories" [value]="item._id">{{ item.name }} {{item._id}}
                             </ng-option>
                         </ng-select>
 
@@ -219,18 +171,11 @@
                             <div class="container-error-message" *ngIf="f.dataSheet.errors.required">
                                 La Ficha técnica es requerido.
                             </div>
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar hoja de seguridad</label>
-<<<<<<< HEAD
-                        <input type="file" class="form-control inputFile" (change)="PdfSelectedSafe($event)" formControlName="safetySheet" [class.is-invalid]="f.safetySheet.errors && f.safetySheet.touched"/>
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Seleccione Hoja de Seguridad
-=======
                         <input type="file" [(ngModel)]="idsValueSelectSafe" accept=".pdf" class="form-control inputFile" (change)="PdfSelectedSafe($event)" formControlName="safetySheet" />
                         <div *ngIf="f.safetySheet.valid">
                             <div *ngIf="selectedPdfSafe; else noFileSegurity">
@@ -244,7 +189,6 @@
                             <div class="container-error-message" *ngIf="f.safetySheet.errors.required">
                                 La hoja de seguridad es requerido.
                             </div>
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
@@ -260,12 +204,6 @@
                     </div> -->
                     <div class="col-md-6 col-12">
                         <label for="">Agregar imagen principal</label>
-<<<<<<< HEAD
-                        <input type="file" class="form-control inputFile" (change)="onImgCover($event)" formControlName="coverImage" [class.is-invalid]="f.coverImage.errors && f.coverImage.touched"/>
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="mainImage"> -->
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Seleccione la imágen principal
-=======
                         <input type="file" [(ngModel)]="idsValueImageCover" class="form-control inputFile" accept="image/*" (change)="onImgCover($event)" formControlName="coverImage" />
 
                         <div *ngIf="f.coverImage.valid">
@@ -280,22 +218,11 @@
                             <div class="container-error-message" *ngIf="f.coverImage.errors.required">
                                 La imagen principal es requerido.
                             </div>
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                         </div>
                     </div>
 
                     <div class="col-md-6 col-12">
                         <label for="">Agregar Carrusel de imágenes</label>
-<<<<<<< HEAD
-                        <input type="file" class="form-control inputFile" id="file" multiple (change)="selectFilesGallery($event)" formControlName="images" [class.is-invalid]="f.images.errors && f.images.touched" />
-                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Seleccione las imágenes
-                        </div>
-                        <div>
-                            <!-- <img *ngFor='let preview of previews' [src]="preview" class="preview"> -->
-                        </div>
-                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="carouselImages"> -->
-=======
                         <input type="file" [(ngModel)]="idsValueImageCarousel" class="form-control inputFile" accept="image/*" id="file" multiple (change)="selectFilesGallery($event)" formControlName="images" />
 
                         <div *ngIf="f.images.valid">
@@ -314,7 +241,6 @@
                                 Seleccione las imágenes.
                             </div>
                         </div>
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                     </div>
                     <div class="col-md-12 col-12">
                         <div class="contentBtnNext">
@@ -323,14 +249,10 @@
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
     </form>
-<<<<<<< HEAD
-    <div class="col-12">
-=======
 
     <!-- <div class="col-12">
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
         <div class="especificaciones">
             <button type="button" class="btn btnEspecificaciones" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> 
                 Agregar Especificaciones
@@ -349,11 +271,6 @@
                 <div class="modal-body">
                     <form [formGroup]="reviewProductForm">
                         <div class="row">
-<<<<<<< HEAD
-                            <select formControlName="id" name="category" class="selectProduct" >
-                                <option value="" selected="true" disabled="disabled">Seleccione un producto </option>
-                                <option  *ngFor="let item of selectedProducts" [value]="item._id"> {{item.name}}</option>
-=======
                             <select formControlName="id" name="category" class="selectProduct">
                                 <option value="" selected="true" disabled="disabled">
                                     Seleccione un producto
@@ -361,7 +278,6 @@
                                 <option *ngFor="let item of selectedProducts" [value]="item._id">
                                     {{ item.name }}
                                 </option>
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                             </select>
                             <div class="col-md-12 col-12">
                                 <label for="">Titulo</label>
@@ -378,14 +294,7 @@
                 
                             </div> -->
                         </div>
-<<<<<<< HEAD
-                        <br>
-
-                        
-
-=======
                         <br />
->>>>>>> 8b4e4065d6bda832aa831181268565d80947a1fb
                     </form>
                 </div>
                 <div class="modal-footer">
