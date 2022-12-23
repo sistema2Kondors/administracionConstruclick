@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AuthService } from '@modules/auth/services';
+// import { CheckCategoriesComponent } from './componentes/check-categories/check-categories.component';
+// import { CheckProviderComponent } from './componentes/check-provider/check-provider.component';
+
 
 
 
@@ -28,7 +31,8 @@ const ngWizardConfig: NgWizardConfig = {
         ReactiveFormsModule,
         FormsModule,
         NgbModule,
-        NgSelectModule
+        NgSelectModule,
+        
     ],
     providers: [
         AuthService,
