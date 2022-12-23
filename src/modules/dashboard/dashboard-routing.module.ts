@@ -11,7 +11,7 @@ import * as dashboardContainers from './containers';
 
 /* Guards */
 import * as dashboardGuards from './guards';
-import { CheckLoginGuard } from '@app/guards/check-login.guard';
+import { CheckLoginGuard } from '@app/guards/login-guard/check-login.guard';
 
 /* Routes */
 export const ROUTES: Routes = [

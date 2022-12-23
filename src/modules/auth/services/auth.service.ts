@@ -15,42 +15,29 @@ export class AuthService {
     public data_id:string;
     public data_lastname:string;
     public loggedIn = new BehaviorSubject<boolean>(false);
-    // public _isLoggedIn$ = new BehaviorSubject<boolean>(false);
-    // isLoggedIn$ = this._isLoggedIn$.asObservable();
+    public loggedSession = new BehaviorSubject<boolean>(false);
 
     get isLogged():Observable<boolean>{
       return this.loggedIn.asObservable();
     }
+    get isLoggedSession():Observable<boolean>{
+      return this.loggedSession.asObservable();
+    }
 
     constructor( private _genericService: GenericService) {
         this.readDataToken();
+   
     }
 
-
     public postLoginUser(login):Observable<any> {
-
-      this.loggedIn.next(true);
-
         const URL =  `${environment.DOMAIN_URL}/${LoginServiceEntries.LOGIN_USER_ENDPOINT_POST}`
-      
         return  <Observable<any>> this._genericService.genericPostCustomer(URL, login).pipe(
-          tap((resp: any) => {
-            // localStorage.setItem('Session', "true");
+          map((resp: any) => {
             this.saveDataToken(resp['data']); 
-            this.loggedIn.next(true);
-           
+
+            return resp
           }),
-          
-          // map( resp => {
-      
-          //   // console.log("rep service",resp);
-          //   // console.log("LoguetIn",this.loggedIn);
-           
-          // }),
-       
-    
         );
-       
       }
 
 
@@ -67,7 +54,7 @@ export class AuthService {
         
         this.data_id = data.user._id; 
         localStorage.setItem('id', data.user._id);
-        
+        // this.loggedIn.next(true);
         // console.log('Todo', data.user);
     
       }
@@ -78,6 +65,7 @@ export class AuthService {
         localStorage.removeItem('lastname');
         localStorage.removeItem('id');
         this.loggedIn.next(false);
+        this.loggedSession.next(false);
         // this._isLoggedIn$.next(false);
       }
     
@@ -89,7 +77,8 @@ export class AuthService {
           this.dataName = localStorage.getItem('name');
           this.data_lastname = localStorage.getItem('lastname');
           this.data_id = localStorage.getItem('id');
-        //   this.loggedIn.next(true);
+          this.loggedIn.next(true);
+          this.loggedSession.next(true);
         }else{
           this.userToken = ''
         //   this.logout();
