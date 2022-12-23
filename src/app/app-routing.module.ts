@@ -135,14 +135,6 @@ const routes: Routes = [
             ),
             canActivate:[CheckLoginGuard],
     },
-    {
-        path: 'consulta',
-        loadChildren: () =>
-            import('modules/inquiries/inquieres-routing/inquieres-routing.module').then(
-                m => m.InquieresRoutingModule
-            ),
-            canActivate:[CheckLoginGuard],
-    },
 
     {
         path: '',
@@ -165,6 +157,14 @@ const routes: Routes = [
                 m => m.AuthRoutingModule
             ),
     },
+    {
+        path: 'consultas',
+        loadChildren: () =>
+            import('modules/consultas/consultas-routing.module').then(
+                m => m.ConsultasRoutingModule
+            ),
+    },
+
     {
         path: '**',
         pathMatch: 'full',

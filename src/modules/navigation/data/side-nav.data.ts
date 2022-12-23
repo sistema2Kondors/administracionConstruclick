@@ -58,7 +58,7 @@ export const sideNavItems: SideNavItems = {
     consulta: {
         img: 'assets/img/iconos-menu/iconoCentroAyuda.png',
         text: 'consulta',
-        link: '/consulta',
+        link: '/consultas/check-categories',
     },
     catalogo: {
         img: 'assets/img/iconos-menu/iconoCatalogo.png',
