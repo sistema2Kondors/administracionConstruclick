@@ -36,7 +36,7 @@ export class CheckCategoriesComponent implements OnInit {
                     }
                 }   
              }
-             console.log("crear", this.arrayCategories);
+             //console.log("crear", this.arrayCategories);
 
           });
      

@@ -7,7 +7,7 @@ export const sideNavSections: SideNavSection[] = [
     },
     {
         text: 'INICIO',
-        items: ['notifications', 'tienda', 'ordenes', 'historial', 'pagos', 'consulta'],
+        items: ['notifications', 'tienda', 'ordenes', 'historial', 'pagos', 'proveedor', 'consulta'],
     },
     {
         text: 'ADMINISTRAR',
@@ -55,9 +55,15 @@ export const sideNavItems: SideNavItems = {
         text: 'Pagos',
         link: '/pagos',
     },
+    
+    proveedor: {
+        img: 'assets/img/iconos-menu/iconoCentroAyuda.png',
+        text: 'Proveedor',
+        link: '/crear-provider',
+    },
     consulta: {
         img: 'assets/img/iconos-menu/iconoCentroAyuda.png',
-        text: 'consulta',
+        text: 'Consulta',
         link: '/consultas/check-categories',
     },
     catalogo: {

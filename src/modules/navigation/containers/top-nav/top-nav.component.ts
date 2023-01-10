@@ -23,5 +23,9 @@ export class TopNavComponent implements OnInit {
         // window.location.reload();      
     }
 
+    // menuToggle() {
+    //     const toggleMenu = document.querySelector(".menuCerrar");
+    //     toggleMenu.classList.toggle("active");
+    // }
 
 }

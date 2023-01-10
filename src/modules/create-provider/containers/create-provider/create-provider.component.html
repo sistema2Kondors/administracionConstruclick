@@ -24,15 +24,15 @@
                         </div>
                     </div>
                     <div class="col-md-12 col-12">
-                        <label>docNumber</label>
+                        <label>Número de documento</label>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.docNumber.errors && f.docNumber.touched" placeholder="docNumber" aria-describedby="inputGroup-sizing-default" formControlName="docNumber">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.docNumber.errors && f.docNumber.touched" placeholder="Número de documento" aria-describedby="inputGroup-sizing-default" formControlName="docNumber">
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar docNumber
+                            Ingresar número de documento
                         </div>
                     </div>
-                    <div class="col-md-12 col-12">
+                    <!-- <div class="col-md-12 col-12">
                         <label>docFile</label>
                     </div>
                     <div class="col-md-6 col-12">
@@ -40,32 +40,60 @@
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                             Ingresar docFile
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-md-12 col-12">
-                        <label>docType</label>
+                        <label for="">Tipo de documento</label>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.docType.errors && f.docType.touched" placeholder="docType" aria-describedby="inputGroup-sizing-default" formControlName="docType">
+                        <select formControlName="docType" name="category" class="form-select" aria-label="Default select example">
+                            <option value="" selected="true" disabled="disabled">
+                                Seleccione tipo documento
+                            </option>
+                            <option value="RUT"> RUT</option>
+                            <Option value="NIT">NIT</Option>
+                        </select>
+
+                        <div class="alert-danger" *ngIf="f.docType.invalid && (f.docType.touched || submitted)">
+                            <div class="container-error-message" *ngIf="f.docType.errors.required">
+                                El tipo de documento es requerido.
+                            </div>
+                        </div>
+
+                        <!-- <input type="text" class="form-control inputProduct" formControlName="idProvider"> -->
+                        <!-- <input type="file" class="form-control inputFile" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" formControlName="safetySheet"> -->
+                    </div>
+                    
+                    <!-- <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.docType.errors && f.docType.touched" placeholder="Tipo de documento" aria-describedby="inputGroup-sizing-default" formControlName="docType">
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar docType
+                            Ingresar tipo de documento
+                        </div>
+                    </div> -->
+                    <div class="col-md-12 col-12">
+                        <label>Dirección</label>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.address.errors && f.address.touched" placeholder="Dirección" aria-describedby="inputGroup-sizing-default" formControlName="address">
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Ingresar Dirección
                         </div>
                     </div>
                     <div class="col-md-12 col-12">
-                        <label>address</label>
+                        <label>Número de contacto</label>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.address.errors && f.address.touched" placeholder="Address" aria-describedby="inputGroup-sizing-default" formControlName="address">
+                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.contactNumber.errors && f.contactNumber.touched" placeholder="Número de contacto" aria-describedby="inputGroup-sizing-default" formControlName="contactNumber">
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar Address
+                            Ingresar Número de contacto
                         </div>
                     </div>
                     <div class="col-md-12 col-12">
-                        <label>contactNumber</label>
+                        <label>Id user</label>
                     </div>
                     <div class="col-md-6 col-12">
-                        <input type="number" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.contactNumber.errors && f.contactNumber.touched" placeholder="contactNumber" aria-describedby="inputGroup-sizing-default" formControlName="contactNumber">
+                        <input type="text" class="form-control inputProduct" aria-label="Sizing example input" [class.is-invalid]="f.companyUserId.errors && f.companyUserId.touched" placeholder="Id user" aria-describedby="inputGroup-sizing-default" formControlName="companyUserId">
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                            Ingresar contactNumber
+                            Ingresar Id User
                         </div>
                     </div>
                     <div class="col-md-12 col-12">

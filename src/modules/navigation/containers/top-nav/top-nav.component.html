@@ -19,15 +19,36 @@
             <ul class="navbar-nav ml-auto ml-md-0">
                 <sb-top-nav-user></sb-top-nav-user>
             </ul>
-        </form>
+        </form>    
+    </div>
+    
+    <div class="navUser">
+        <!-- <div class="action">
+            <div class="profile" >
+              <img src="./assets/img/iconos-login/usuario-de-perfil.png" />
+            </div>
+            <div class="menuCerrar">
+              <ul>
+                <li><a href="#">Setting</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </div>
+        </div> -->
+        <input type="checkbox" id="toggle" class="">
+        <label for="toggle" class="button"></label>
 
-        <!-- Navbar-->
+        <div class="nav">
+            <a><p class="nameUser">{{ _serviceAuth.dataName }}</p></a>
+            <a href="http://localhost:4200/auth/login"><button class="btnUser" type="button" (click)="logout()">Cerrar Sesión</button></a>
+        </div>
+
 
     </div>
-    <div class="navUser">
+    <!-- <div class="navUser">
         <p class="nameUser">{{ _serviceAuth.dataName }}</p>
         <a href="http://localhost:4200/auth/login"><button class="btnUser"type="button" (click)="logout()">Logout</button></a>
-    </div>
+    </div> -->
 
 
 </nav>
